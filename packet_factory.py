@@ -24,6 +24,7 @@ import os
 import shutil
 import subprocess
 import tempfile
+import hashlib
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 
@@ -426,6 +427,76 @@ def build_uid_linker(
     print(f"[UID Linker] ✓ {output_json} — {len(linker)} UID↔flow_id mappings.", flush=True)
 
 
+def build_file_linker(
+    zeek_dir: Path,
+    extracted_dir: Path,
+    output_json: Path,
+) -> None:
+    """
+    File Linker: Map Zeek extracted filenames → SHA256 Hash → Zeek UID.
+    This enables Phase 3 to link a YARA match on a hash back to its network session.
+    """
+    zeek_dir = zeek_dir.resolve()
+    extracted_dir = extracted_dir.resolve()
+    output_json = output_json.resolve()
+    
+    files_json = zeek_dir / "files.json"
+    if not files_json.exists():
+        print(f"[File Linker] WARNING: files.json not found at {files_json}", flush=True)
+        return
+        
+    linker: Dict[str, Dict[str, str]] = {}
+    
+    with open(files_json, encoding="utf-8") as fh:
+        for raw in fh:
+            raw = raw.strip()
+            if not raw: continue
+            try:
+                rec = json.loads(raw)
+                extracted_name = rec.get("extracted")
+                # Zeek's files.json usually uses 'conn_uids' array or sometimes 'uid'
+                uid = rec.get("uid") or (rec.get("conn_uids", [None])[0] if rec.get("conn_uids") else None)
+                
+                if extracted_name and uid:
+                    target_file = None
+                    if (extracted_dir / extracted_name).exists():
+                        target_file = extracted_dir / extracted_name
+                    elif (extracted_dir / f"zeek_{extracted_name}").exists():
+                        target_file = extracted_dir / f"zeek_{extracted_name}"
+                    elif (zeek_dir / "extract_files" / extracted_name).exists():
+                        target_file = zeek_dir / "extract_files" / extracted_name
+                        
+                    if target_file:
+                        h = hashlib.sha256()
+                        try:
+                            with open(target_file, "rb") as f:
+                                for chunk in iter(lambda: f.read(65536), b""):
+                                    h.update(chunk)
+                            sha256_hash = h.hexdigest()
+                            
+                            linker[sha256_hash] = {
+                                "uid": uid,
+                                "filename": extracted_name
+                            }
+                        except OSError:
+                            pass
+            except json.JSONDecodeError:
+                continue
+
+    output_json.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_json, "w", encoding="utf-8") as fh:
+        json.dump(
+            {
+                "pcap": output_json.parent.parent.name,
+                "file_hash_to_zeek_uid": linker,
+                "total_mapped_files": len(linker),
+            },
+            fh,
+            indent=2,
+        )
+    print(f"[File Linker] ✓ {output_json.name} — {len(linker)} File Hash↔UID mappings.", flush=True)
+
+
 def combine_extracted_payloads(
     zeek_dir: Path,
     suri_dir: Path,
@@ -539,6 +610,7 @@ def main() -> None:
     suri_dir            = (base_dir / "suricata").resolve()
     extracted_dir       = (base_dir / "extracted_payloads").resolve()
     linker_json         = (base_dir / "flow_linker.json").resolve()
+    file_linker_json    = (base_dir / "file_linker.json").resolve()
 
     # ── Determine CPU resources ────────────────────────────────────────────────
     cpu_count = os.cpu_count() or 1
@@ -574,6 +646,8 @@ def main() -> None:
         build_uid_linker(zeek_dir, suri_dir, linker_json, cpu_count)
 
         combine_extracted_payloads(zeek_dir, suri_dir, extracted_dir, cpu_count)
+        
+        build_file_linker(zeek_dir, extracted_dir, file_linker_json)
 
         print(f"\n✅ Processing complete!  Data lake ready at: {base_dir}", flush=True)
 

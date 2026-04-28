@@ -8,6 +8,7 @@ Usage:
   python3 run_all.py path/to/capture.pcap
 """
 
+import os
 import sys
 import subprocess
 from pathlib import Path
@@ -48,6 +49,29 @@ def main():
     except subprocess.CalledProcessError:
         print("\n❌ Phase 2 failed!")
         sys.exit(1)
+        
+    print(f"\n============================================================")
+    print(f" PHASE 3: Correlation & Attack Chain Scoring for {stem}")
+    print(f"============================================================")
+    
+    # Phase 2 creates an output folder like 'phase2_output/Hive_20260428_120000/'
+    # We need to find the most recent one for this stem.
+    phase2_base = Path("phase2_output")
+    matching_dirs = sorted(
+        [d for d in phase2_base.iterdir() if d.is_dir() and d.name.startswith(stem + "_")],
+        key=os.path.getmtime,
+        reverse=True
+    )
+    
+    if matching_dirs:
+        latest_phase2 = matching_dirs[0]
+        try:
+            subprocess.run([sys.executable, "correlation.py", processed_target, str(latest_phase2)], check=True)
+        except subprocess.CalledProcessError:
+            print("\n❌ Phase 3 failed!")
+            sys.exit(1)
+    else:
+        print(f"⚠️ Could not locate Phase 2 output directory for {stem} to run Phase 3.")
         
     print("\n✅ Complete Pipeline Finished Successfully!")
 

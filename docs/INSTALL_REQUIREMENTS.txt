@@ -1,0 +1,40 @@
+================================================
+V1_Recon - Complete System Requirements
+================================================
+
+To run this pipeline (Phase 1 & Phase 2) successfully, you need to install both system-level software and Python libraries.
+
+------------------------------------------------
+1. SYSTEM REQUIREMENTS (Linux/Debian/Ubuntu)
+------------------------------------------------
+The Phase 1 orchestrator (packet_factory.py) relies heavily on native security binaries to process PCAP files.
+
+Run the following to install the core system dependencies:
+$ sudo apt-get update
+$ sudo apt-get install -y zeek suricata redis-server
+
+Make sure Redis is running before executing the pipeline:
+$ sudo systemctl enable redis-server
+$ sudo systemctl start redis-server
+
+* Note on Zeek: It is usually installed in /opt/zeek/bin/zeek. Ensure this is accessible or added to your system $PATH.
+
+------------------------------------------------
+2. PYTHON REQUIREMENTS (Pip Packages)
+------------------------------------------------
+The Phase 2 enrichment engine (ioc_extractor.py) requires several Python libraries to handle async API requests, Redis caching, and YARA rule matching.
+
+(Note: These are already stored in requirements.txt)
+You can install them via pip:
+$ pip install aiohttp>=3.9.0 redis>=5.0.0 yara-python>=4.5.0
+
+------------------------------------------------
+3. EXTERNAL THREAT INTELLIGENCE (API Keys)
+------------------------------------------------
+Phase 2 relies on external APIs to enrich the IOCs. You will need to register for free accounts and export your API keys as environment variables:
+
+$ export VT_API_KEY="your_virustotal_key"
+$ export ABUSEIPDB_API_KEY="your_abuseipdb_key"
+$ export OTX_API_KEY="your_otx_alienvault_key"
+
+If any key is missing, the script will gracefully skip that specific enrichment provider.

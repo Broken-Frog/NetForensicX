@@ -1,5 +1,6 @@
 *.json
 *.log
-/env
-/extracted_payloads
-__pychache__
+env/
+*.pcap
+__pychache_
+extracted_payloads/_
