@@ -1,0 +1,5 @@
+*.json
+*.log
+/env
+/extracted_payloads
+__pychache__
