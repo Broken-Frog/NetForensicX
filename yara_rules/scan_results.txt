@@ -1,0 +1,1743 @@
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-185.749636-SMB-F8VS4644moP8mtokI6
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-185.749636-SMB-F8VS4644moP8mtokI6
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.122268-SMB-FVSPyc1HzMtZLNMwii
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.122268-SMB-FVSPyc1HzMtZLNMwii
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-325.81116-SMB-FQgPL6v9TBNQkEae1
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-325.81116-SMB-FQgPL6v9TBNQkEae1
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-325.81116-SMB-FQgPL6v9TBNQkEae1
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-325.81116-SMB-FQgPL6v9TBNQkEae1
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.060691-SMB-FaRtsi1F8Nj1y6A1P4
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.060691-SMB-FaRtsi1F8Nj1y6A1P4
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.710743-SMB-FETE5i4qzyABmaB0wk
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.710743-SMB-FETE5i4qzyABmaB0wk
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-211.115035-SMB-FQ8zS02cuL8HL4bPQ2
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-211.115035-SMB-FQ8zS02cuL8HL4bPQ2
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-201.624858-SMB-FqqUc43pY5diHIvm2c
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-201.624858-SMB-FqqUc43pY5diHIvm2c
+SQL_Injection_Strong [description="SQL Injection",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-201.624858-SMB-FqqUc43pY5diHIvm2c
+0x1ad:$c: --
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-201.624858-SMB-FqqUc43pY5diHIvm2c
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-201.624858-SMB-FqqUc43pY5diHIvm2c
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.986515-SMB-Fdp8KU37dtAEZ1PMhh
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.986515-SMB-Fdp8KU37dtAEZ1PMhh
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.158641-SMB-FXo4af3bm1f0Ex04l9
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.158641-SMB-FXo4af3bm1f0Ex04l9
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.578814-SMB-FmFXlo1WXlHrRaugT1
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.578814-SMB-FmFXlo1WXlHrRaugT1
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.578814-SMB-FmFXlo1WXlHrRaugT1
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.578814-SMB-FmFXlo1WXlHrRaugT1
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.578814-SMB-FmFXlo1WXlHrRaugT1
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.578814-SMB-FmFXlo1WXlHrRaugT1
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.578814-SMB-FmFXlo1WXlHrRaugT1
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.578814-SMB-FmFXlo1WXlHrRaugT1
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.168604-SMB-FBO9uC3TuAOzcwaYE1
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.168604-SMB-FBO9uC3TuAOzcwaYE1
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.327835-SMB-F5ZL6Q2b1MKyZbtuMd
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.327835-SMB-F5ZL6Q2b1MKyZbtuMd
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.327835-SMB-F5ZL6Q2b1MKyZbtuMd
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.327835-SMB-F5ZL6Q2b1MKyZbtuMd
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.327835-SMB-F5ZL6Q2b1MKyZbtuMd
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.327835-SMB-F5ZL6Q2b1MKyZbtuMd
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.327835-SMB-F5ZL6Q2b1MKyZbtuMd
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.327835-SMB-F5ZL6Q2b1MKyZbtuMd
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-180.090744-SMB-F7shQi3S8PcFRg30yi
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-180.090744-SMB-F7shQi3S8PcFRg30yi
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-208.033614-SMB-FDjEpr2cQYFbvhiNZ2
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-208.033614-SMB-FDjEpr2cQYFbvhiNZ2
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-201.871644-SMB-FC6tkK1QZ886ChKCIk
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-201.871644-SMB-FC6tkK1QZ886ChKCIk
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.038823-SMB-FrUdVx45cEshyMA3Qb
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.038823-SMB-FrUdVx45cEshyMA3Qb
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-199.442492-SMB-FbsDmf1Zkda8bSGmMk
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-199.442492-SMB-FbsDmf1Zkda8bSGmMk
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-199.442492-SMB-FbsDmf1Zkda8bSGmMk
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-199.442492-SMB-FbsDmf1Zkda8bSGmMk
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-199.442492-SMB-FbsDmf1Zkda8bSGmMk
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-199.442492-SMB-FbsDmf1Zkda8bSGmMk
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-199.442492-SMB-FbsDmf1Zkda8bSGmMk
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-199.442492-SMB-FbsDmf1Zkda8bSGmMk
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-62.243659-HTTP-Fntx18W6qW8n4PZh5
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-62.243659-HTTP-Fntx18W6qW8n4PZh5
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-62.243659-HTTP-Fntx18W6qW8n4PZh5
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-62.243659-HTTP-Fntx18W6qW8n4PZh5
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-62.243659-HTTP-Fntx18W6qW8n4PZh5
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-62.243659-HTTP-Fntx18W6qW8n4PZh5
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-62.243659-HTTP-Fntx18W6qW8n4PZh5
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-66.594626-HTTP-FIWpxw4nBKx21wHCJf
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-66.594626-HTTP-FIWpxw4nBKx21wHCJf
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-66.594626-HTTP-FIWpxw4nBKx21wHCJf
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-66.594626-HTTP-FIWpxw4nBKx21wHCJf
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-66.594626-HTTP-FIWpxw4nBKx21wHCJf
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-66.594626-HTTP-FIWpxw4nBKx21wHCJf
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-66.594626-HTTP-FIWpxw4nBKx21wHCJf
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-306.852497-SMB-FlVgHR2b3UGvuB0Cui
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-306.852497-SMB-FlVgHR2b3UGvuB0Cui
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-252.046024-SMB-FQyBX24njrb81ZKvvi
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-252.046024-SMB-FQyBX24njrb81ZKvvi
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-221.740208-SMB-FBhucT1aCLpD4bKc2c
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-221.740208-SMB-FBhucT1aCLpD4bKc2c
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-283.521308-SMB-FeU7nT1P5sdfTmmYo1
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-283.521308-SMB-FeU7nT1P5sdfTmmYo1
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-269.140175-SMB-FD3Gm31yBHrq1yM948
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-269.140175-SMB-FD3Gm31yBHrq1yM948
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.932363-SMB-F2BYkW3KGBXYBEyb87
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.932363-SMB-F2BYkW3KGBXYBEyb87
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.932363-SMB-F2BYkW3KGBXYBEyb87
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.932363-SMB-F2BYkW3KGBXYBEyb87
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.932363-SMB-F2BYkW3KGBXYBEyb87
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.932363-SMB-F2BYkW3KGBXYBEyb87
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.932363-SMB-F2BYkW3KGBXYBEyb87
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.932363-SMB-F2BYkW3KGBXYBEyb87
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-302.406692-SMB-FqSuAFXFMhyiosRL3
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-302.406692-SMB-FqSuAFXFMhyiosRL3
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-58.110466-HTTP-FnYanm4r2dSbNn3Rf7
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-58.110466-HTTP-FnYanm4r2dSbNn3Rf7
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-58.110466-HTTP-FnYanm4r2dSbNn3Rf7
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-58.110466-HTTP-FnYanm4r2dSbNn3Rf7
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-58.110466-HTTP-FnYanm4r2dSbNn3Rf7
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-58.110466-HTTP-FnYanm4r2dSbNn3Rf7
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-58.110466-HTTP-FnYanm4r2dSbNn3Rf7
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-176.428998-SMB-FnUczqoioXU791Lz3
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-176.428998-SMB-FnUczqoioXU791Lz3
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-57.356936-HTTP-FDryeq3zyiy6IdTQA5
+0x1d8:$play: Play
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-57.356936-HTTP-FDryeq3zyiy6IdTQA5
+0x11b0:$tor: tor
+0x11f8:$tor: tor
+0x1286:$tor: tor
+0x1314:$tor: tor
+0xe19:$c2: c2
+0x1374:$c2: c2
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-173.343552-SMB-FQ2hhG2X20RW7YBHb4
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-173.343552-SMB-FQ2hhG2X20RW7YBHb4
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-240.793738-SMB-Ft8ecV3EHq2xPLPXLl
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-240.793738-SMB-Ft8ecV3EHq2xPLPXLl
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-218.066464-SMB-FSvOmv2sIwpDk3bCha
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-218.066464-SMB-FSvOmv2sIwpDk3bCha
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-218.066464-SMB-FSvOmv2sIwpDk3bCha
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-218.066464-SMB-FSvOmv2sIwpDk3bCha
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-226.600921-SMB-FddLjJOvwY9uiPp8i
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-226.600921-SMB-FddLjJOvwY9uiPp8i
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.657619-SMB-FWcmzl1EKOOnElxUM5
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.657619-SMB-FWcmzl1EKOOnElxUM5
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.657619-SMB-FWcmzl1EKOOnElxUM5
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.657619-SMB-FWcmzl1EKOOnElxUM5
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.657619-SMB-FWcmzl1EKOOnElxUM5
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.657619-SMB-FWcmzl1EKOOnElxUM5
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.657619-SMB-FWcmzl1EKOOnElxUM5
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-339.986261-SMB-F6W6Nk151zU3NAJG0g
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-339.986261-SMB-F6W6Nk151zU3NAJG0g
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-339.986261-SMB-F6W6Nk151zU3NAJG0g
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-339.986261-SMB-F6W6Nk151zU3NAJG0g
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-339.986261-SMB-F6W6Nk151zU3NAJG0g
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-339.986261-SMB-F6W6Nk151zU3NAJG0g
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-225.798595-SMB-FwoUGWI3a8DGLtQeg
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-225.798595-SMB-FwoUGWI3a8DGLtQeg
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-225.798595-SMB-FwoUGWI3a8DGLtQeg
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-225.798595-SMB-FwoUGWI3a8DGLtQeg
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-225.798595-SMB-FwoUGWI3a8DGLtQeg
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-225.798595-SMB-FwoUGWI3a8DGLtQeg
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-225.798595-SMB-FwoUGWI3a8DGLtQeg
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-225.798595-SMB-FwoUGWI3a8DGLtQeg
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-168.891671-SMB-FMPnYDgispRHmfCag
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-168.891671-SMB-FMPnYDgispRHmfCag
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.637565-SMB-FEuk4SDryK4Htuuo5
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.637565-SMB-FEuk4SDryK4Htuuo5
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.637565-SMB-FEuk4SDryK4Htuuo5
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.637565-SMB-FEuk4SDryK4Htuuo5
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.637565-SMB-FEuk4SDryK4Htuuo5
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.637565-SMB-FEuk4SDryK4Htuuo5
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.637565-SMB-FEuk4SDryK4Htuuo5
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-315.637565-SMB-FEuk4SDryK4Htuuo5
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-268.441457-SMB-FS9Auv2W3STvXbVgo8
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-268.441457-SMB-FS9Auv2W3STvXbVgo8
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-268.441457-SMB-FS9Auv2W3STvXbVgo8
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-268.441457-SMB-FS9Auv2W3STvXbVgo8
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-268.441457-SMB-FS9Auv2W3STvXbVgo8
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-268.441457-SMB-FS9Auv2W3STvXbVgo8
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.442052-SMB-FCTOWReLYtILyuSZ6
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.442052-SMB-FCTOWReLYtILyuSZ6
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.072546-SMB-FrkWnE2DcK4jGFwN5b
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.072546-SMB-FrkWnE2DcK4jGFwN5b
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-188.092641-SMB-FTxfY64KQQsLY3KF8h
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-188.092641-SMB-FTxfY64KQQsLY3KF8h
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-188.092641-SMB-FTxfY64KQQsLY3KF8h
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-188.092641-SMB-FTxfY64KQQsLY3KF8h
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-277.705575-SMB-Fy7N321cj7BtuAIlK6
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-277.705575-SMB-Fy7N321cj7BtuAIlK6
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.330457-SMB-FYUqxW1ygqPkRu42G
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.330457-SMB-FYUqxW1ygqPkRu42G
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.330457-SMB-FYUqxW1ygqPkRu42G
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.330457-SMB-FYUqxW1ygqPkRu42G
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.330457-SMB-FYUqxW1ygqPkRu42G
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.330457-SMB-FYUqxW1ygqPkRu42G
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.330457-SMB-FYUqxW1ygqPkRu42G
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.330457-SMB-FYUqxW1ygqPkRu42G
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.011745-SMB-FiDyEKjeiEPhDKHe2
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.011745-SMB-FiDyEKjeiEPhDKHe2
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-67.250223-HTTP-FRV1Ld4MbBQYzd26u4
+0x1d8:$play: Play
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-67.250223-HTTP-FRV1Ld4MbBQYzd26u4
+0x11b0:$tor: tor
+0x11f8:$tor: tor
+0x1286:$tor: tor
+0x1314:$tor: tor
+0xe19:$c2: c2
+0x1374:$c2: c2
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-167.101398-SMB-FoWEEM1OcXtdQ2p4e6
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-167.101398-SMB-FoWEEM1OcXtdQ2p4e6
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.316794-SMB-FVg6SsgpE8hsusnl1
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.316794-SMB-FVg6SsgpE8hsusnl1
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.1764-SMB-FPOMnv3QYyx2JdrV1g
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.1764-SMB-FPOMnv3QYyx2JdrV1g
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.828068-SMB-FS3ylD97CcQrpfoFg
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.828068-SMB-FS3ylD97CcQrpfoFg
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.449018-SMB-FlGrCtNsqcZYifIi6
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.449018-SMB-FlGrCtNsqcZYifIi6
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-337.261454-SMB-FYocrv3RLcA7TjKtBj
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-337.261454-SMB-FYocrv3RLcA7TjKtBj
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-337.261454-SMB-FYocrv3RLcA7TjKtBj
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-337.261454-SMB-FYocrv3RLcA7TjKtBj
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-337.261454-SMB-FYocrv3RLcA7TjKtBj
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-337.261454-SMB-FYocrv3RLcA7TjKtBj
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-337.261454-SMB-FYocrv3RLcA7TjKtBj
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-337.261454-SMB-FYocrv3RLcA7TjKtBj
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-174.928054-SMB-F5Czdf4pxhDsmTdh
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-174.928054-SMB-F5Czdf4pxhDsmTdh
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-189.232178-SMB-Fm29aC4Mr2558B8Itd
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-189.232178-SMB-Fm29aC4Mr2558B8Itd
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.662745-SMB-F8vsT915jLN4XyPZMe
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.662745-SMB-F8vsT915jLN4XyPZMe
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.495983-SMB-FnzAPj1IiWWuRrnOI8
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.495983-SMB-FnzAPj1IiWWuRrnOI8
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.495983-SMB-FnzAPj1IiWWuRrnOI8
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.495983-SMB-FnzAPj1IiWWuRrnOI8
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.495983-SMB-FnzAPj1IiWWuRrnOI8
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.495983-SMB-FnzAPj1IiWWuRrnOI8
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.495983-SMB-FnzAPj1IiWWuRrnOI8
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.495983-SMB-FnzAPj1IiWWuRrnOI8
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-61.961287-HTTP-FjB4HE4OS5f08hbKn8
+0x1d8:$play: Play
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-61.961287-HTTP-FjB4HE4OS5f08hbKn8
+0x11b0:$tor: tor
+0x11f8:$tor: tor
+0x1286:$tor: tor
+0x1314:$tor: tor
+0xd2e:$c2: c2
+0xef0:$c2: c2
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-297.516288-SMB-Ftsgwo4LjzQMB1srzi
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-297.516288-SMB-Ftsgwo4LjzQMB1srzi
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-247.103829-SMB-FnGRdY12ausTW0Bmy7
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-247.103829-SMB-FnGRdY12ausTW0Bmy7
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.977785-SMB-F7ktyu4P35pZtYTAq
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.977785-SMB-F7ktyu4P35pZtYTAq
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.977785-SMB-F7ktyu4P35pZtYTAq
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.977785-SMB-F7ktyu4P35pZtYTAq
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.977785-SMB-F7ktyu4P35pZtYTAq
+T1547_Boot_or_Logon_Autostart [description="T1547: Boot or Logon Autostart Execution",mitre_technique="T1547",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.977785-SMB-F7ktyu4P35pZtYTAq
+0x52c1:$run: rUn
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.977785-SMB-F7ktyu4P35pZtYTAq
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.977785-SMB-F7ktyu4P35pZtYTAq
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.30308-SMB-FzAzBE309L9vxShuu2
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.30308-SMB-FzAzBE309L9vxShuu2
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.30308-SMB-FzAzBE309L9vxShuu2
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.30308-SMB-FzAzBE309L9vxShuu2
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-66.537991-HTTP-FeM38AdYtWIYSyY0l
+0x1d8:$play: Play
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-66.537991-HTTP-FeM38AdYtWIYSyY0l
+0x11b0:$tor: tor
+0x11f8:$tor: tor
+0x1286:$tor: tor
+0x1314:$tor: tor
+0xd2e:$c2: c2
+0xef0:$c2: c2
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.784112-SMB-FlrJ1l3Xx4fYTZEVvj
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.784112-SMB-FlrJ1l3Xx4fYTZEVvj
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.792295-SMB-F4ovbo3bQkWQWpAEHb
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.792295-SMB-F4ovbo3bQkWQWpAEHb
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.792295-SMB-F4ovbo3bQkWQWpAEHb
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.792295-SMB-F4ovbo3bQkWQWpAEHb
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.792295-SMB-F4ovbo3bQkWQWpAEHb
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.792295-SMB-F4ovbo3bQkWQWpAEHb
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.792295-SMB-F4ovbo3bQkWQWpAEHb
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.792295-SMB-F4ovbo3bQkWQWpAEHb
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-258.150044-SMB-F6DZGH2ZBRnFXgYTfb
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-258.150044-SMB-F6DZGH2ZBRnFXgYTfb
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-258.150044-SMB-F6DZGH2ZBRnFXgYTfb
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-258.150044-SMB-F6DZGH2ZBRnFXgYTfb
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-193.274306-SMB-FhEpM93Jk4IONlpOIh
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-193.274306-SMB-FhEpM93Jk4IONlpOIh
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-193.274306-SMB-FhEpM93Jk4IONlpOIh
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-193.274306-SMB-FhEpM93Jk4IONlpOIh
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-193.274306-SMB-FhEpM93Jk4IONlpOIh
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-193.274306-SMB-FhEpM93Jk4IONlpOIh
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-193.274306-SMB-FhEpM93Jk4IONlpOIh
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-53.770164-HTTP-FVyJ9A3Pm8bJUBp4kk
+0x1d8:$play: Play
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-53.770164-HTTP-FVyJ9A3Pm8bJUBp4kk
+0x11b0:$tor: tor
+0x11f8:$tor: tor
+0x1286:$tor: tor
+0x1314:$tor: tor
+0xe19:$c2: c2
+0x1374:$c2: c2
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-213.556632-SMB-FGccrW2lFpnuPHCsMi
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-213.556632-SMB-FGccrW2lFpnuPHCsMi
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-213.556632-SMB-FGccrW2lFpnuPHCsMi
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-213.556632-SMB-FGccrW2lFpnuPHCsMi
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-213.556632-SMB-FGccrW2lFpnuPHCsMi
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-213.556632-SMB-FGccrW2lFpnuPHCsMi
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-213.556632-SMB-FGccrW2lFpnuPHCsMi
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-284.695689-SMB-FuHZ9q3wmWspIQYgW9
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-284.695689-SMB-FuHZ9q3wmWspIQYgW9
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-284.695689-SMB-FuHZ9q3wmWspIQYgW9
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-284.695689-SMB-FuHZ9q3wmWspIQYgW9
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.10907-SMB-FE9Yqq4VlnEYomyYF
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.10907-SMB-FE9Yqq4VlnEYomyYF
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.10907-SMB-FE9Yqq4VlnEYomyYF
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.140225-SMB-Fmubif3Viw2JDb56I4
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.140225-SMB-Fmubif3Viw2JDb56I4
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.881935-SMB-F7XK4q2AMPLXxZBw4
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.881935-SMB-F7XK4q2AMPLXxZBw4
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.10907-SMB-FE9Yqq4VlnEYomyYF
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.10907-SMB-FE9Yqq4VlnEYomyYF
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.10907-SMB-FE9Yqq4VlnEYomyYF
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.10907-SMB-FE9Yqq4VlnEYomyYF
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.10907-SMB-FE9Yqq4VlnEYomyYF
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-215.675166-SMB-FCMxHl3zd4ShS07xSk
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-215.675166-SMB-FCMxHl3zd4ShS07xSk
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.341952-SMB-FVTQQU1xwhxvVLtfwc
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.341952-SMB-FVTQQU1xwhxvVLtfwc
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.830979-SMB-FBmxEb2tbefACa0ZWh
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.830979-SMB-FBmxEb2tbefACa0ZWh
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.830979-SMB-FBmxEb2tbefACa0ZWh
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.830979-SMB-FBmxEb2tbefACa0ZWh
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.830979-SMB-FBmxEb2tbefACa0ZWh
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.830979-SMB-FBmxEb2tbefACa0ZWh
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-323.830979-SMB-FBmxEb2tbefACa0ZWh
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.556899-SMB-F36lzi1ta7zEWdXNq4
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.556899-SMB-F36lzi1ta7zEWdXNq4
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-74.179882-HTTP-FwV0MZ3Q12kFmnFur8
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-74.179882-HTTP-FwV0MZ3Q12kFmnFur8
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-74.179882-HTTP-FwV0MZ3Q12kFmnFur8
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-74.179882-HTTP-FwV0MZ3Q12kFmnFur8
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-74.179882-HTTP-FwV0MZ3Q12kFmnFur8
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-74.179882-HTTP-FwV0MZ3Q12kFmnFur8
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-74.179882-HTTP-FwV0MZ3Q12kFmnFur8
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.708518-SMB-FhxKXg3YULL6hwGgUi
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.708518-SMB-FhxKXg3YULL6hwGgUi
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.708518-SMB-FhxKXg3YULL6hwGgUi
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.708518-SMB-FhxKXg3YULL6hwGgUi
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-319.689164-SMB-FIgIVk1Eset6QN2D41
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-319.689164-SMB-FIgIVk1Eset6QN2D41
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-319.689164-SMB-FIgIVk1Eset6QN2D41
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-319.689164-SMB-FIgIVk1Eset6QN2D41
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-67.022636-HTTP-F7Tiaq1hjheIr8ecC
+0x1d8:$play: Play
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-67.022636-HTTP-F7Tiaq1hjheIr8ecC
+0x11b0:$tor: tor
+0x11f8:$tor: tor
+0x1286:$tor: tor
+0x1314:$tor: tor
+0xe19:$c2: c2
+0x1374:$c2: c2
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.735833-SMB-FNqxTT2L8i0bazQtIa
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.735833-SMB-FNqxTT2L8i0bazQtIa
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-190.671814-SMB-FQjs9u3MlDQXMkvm8k
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-190.671814-SMB-FQjs9u3MlDQXMkvm8k
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-190.671814-SMB-FQjs9u3MlDQXMkvm8k
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-190.671814-SMB-FQjs9u3MlDQXMkvm8k
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-165.07915-SMB-FHNqdUBoMMSg3UGve
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-165.07915-SMB-FHNqdUBoMMSg3UGve
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.081902-SMB-FOW4I93sLaa0A5688
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.081902-SMB-FOW4I93sLaa0A5688
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.081902-SMB-FOW4I93sLaa0A5688
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.081902-SMB-FOW4I93sLaa0A5688
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.081902-SMB-FOW4I93sLaa0A5688
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.081902-SMB-FOW4I93sLaa0A5688
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.081902-SMB-FOW4I93sLaa0A5688
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-73.219705-HTTP-FFDlzQ2Lli3PPt6lR1
+0x1d8:$play: Play
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-73.219705-HTTP-FFDlzQ2Lli3PPt6lR1
+0x11b0:$tor: tor
+0x11f8:$tor: tor
+0x1286:$tor: tor
+0x1314:$tor: tor
+0xe19:$c2: c2
+0x1374:$c2: c2
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.314862-SMB-FVgejC3eg6SelXeMge
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.314862-SMB-FVgejC3eg6SelXeMge
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.314862-SMB-FVgejC3eg6SelXeMge
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.314862-SMB-FVgejC3eg6SelXeMge
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-257.9239-SMB-FE1MnhpSO6LgOI0Z
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-257.9239-SMB-FE1MnhpSO6LgOI0Z
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-195.671579-SMB-FvsRIb2SXZcMvi2f7a
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-195.671579-SMB-FvsRIb2SXZcMvi2f7a
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.306112-SMB-FXWi4k2BNkHUbc117
+0x2bb:$ext8: .hive
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.60706-SMB-FWbUu010BKFikvjWP9
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.60706-SMB-FWbUu010BKFikvjWP9
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.306112-SMB-FXWi4k2BNkHUbc117
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-214.77392-SMB-FviCnm2R4oI0PfT4fh
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-214.77392-SMB-FviCnm2R4oI0PfT4fh
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-214.77392-SMB-FviCnm2R4oI0PfT4fh
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-214.77392-SMB-FviCnm2R4oI0PfT4fh
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-214.77392-SMB-FviCnm2R4oI0PfT4fh
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-214.77392-SMB-FviCnm2R4oI0PfT4fh
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-214.77392-SMB-FviCnm2R4oI0PfT4fh
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-214.77392-SMB-FviCnm2R4oI0PfT4fh
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.61765-SMB-FwA6so3nR98hjSYOE6
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.61765-SMB-FwA6so3nR98hjSYOE6
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.61765-SMB-FwA6so3nR98hjSYOE6
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.61765-SMB-FwA6so3nR98hjSYOE6
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.61765-SMB-FwA6so3nR98hjSYOE6
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.61765-SMB-FwA6so3nR98hjSYOE6
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-246.61765-SMB-FwA6so3nR98hjSYOE6
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.592519-SMB-FUmjTRM95CCZ7Tl55
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.592519-SMB-FUmjTRM95CCZ7Tl55
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.036427-SMB-FtwmBi1AEazJhgA3h
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.036427-SMB-FtwmBi1AEazJhgA3h
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.953176-SMB-FBETru1q3by2DRv0z9
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.953176-SMB-FBETru1q3by2DRv0z9
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.953176-SMB-FBETru1q3by2DRv0z9
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.953176-SMB-FBETru1q3by2DRv0z9
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.953176-SMB-FBETru1q3by2DRv0z9
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.953176-SMB-FBETru1q3by2DRv0z9
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.953176-SMB-FBETru1q3by2DRv0z9
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.07941-SMB-FGXtQx3ijQ17BS1NQd
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-343.07941-SMB-FGXtQx3ijQ17BS1NQd
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.048375-SMB-FEEz8A4zKPfWQYjQHd
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.048375-SMB-FEEz8A4zKPfWQYjQHd
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.048375-SMB-FEEz8A4zKPfWQYjQHd
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.048375-SMB-FEEz8A4zKPfWQYjQHd
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.048375-SMB-FEEz8A4zKPfWQYjQHd
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.048375-SMB-FEEz8A4zKPfWQYjQHd
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.048375-SMB-FEEz8A4zKPfWQYjQHd
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-234.21752-SMB-FX4dSW2VJoN6d3RYW3
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-234.21752-SMB-FX4dSW2VJoN6d3RYW3
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.330355-SMB-FA8k7j1PldZHPpoxK1
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.330355-SMB-FA8k7j1PldZHPpoxK1
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.330355-SMB-FA8k7j1PldZHPpoxK1
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.330355-SMB-FA8k7j1PldZHPpoxK1
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.330355-SMB-FA8k7j1PldZHPpoxK1
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.330355-SMB-FA8k7j1PldZHPpoxK1
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-192.330355-SMB-FA8k7j1PldZHPpoxK1
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.875308-SMB-FNu0kf459EXcfQNTsh
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-241.875308-SMB-FNu0kf459EXcfQNTsh
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-325.118782-SMB-FWjLFM3Bzrs27ltqM6
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-325.118782-SMB-FWjLFM3Bzrs27ltqM6
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-170.800978-SMB-FMJRyXwXK2d5Y17Y2
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-170.800978-SMB-FMJRyXwXK2d5Y17Y2
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-329.025516-SMB-F4Rtzj2mHICKMWCd5g
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-329.025516-SMB-F4Rtzj2mHICKMWCd5g
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.661492-SMB-F0K0KI1o2iOlwRNo14
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-338.661492-SMB-F0K0KI1o2iOlwRNo14
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.798836-SMB-FpUbUk3TRAJmcL4apa
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-254.798836-SMB-FpUbUk3TRAJmcL4apa
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-280.68395-SMB-Ft3vxp4kb3TDjFcJT4
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-280.68395-SMB-Ft3vxp4kb3TDjFcJT4
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.062764-SMB-FxUIaC3lO0VaxtCIS5
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-342.062764-SMB-FxUIaC3lO0VaxtCIS5
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.932171-SMB-FXVyBF1lEycvkWcxya
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.932171-SMB-FXVyBF1lEycvkWcxya
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-273.346953-SMB-FGv1431YZRJvVLX7j8
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-273.346953-SMB-FGv1431YZRJvVLX7j8
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-69.604911-HTTP-F3UfuF2QUHsr79bJsa
+0x1d8:$play: Play
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-69.604911-HTTP-F3UfuF2QUHsr79bJsa
+0x11b0:$tor: tor
+0x11f8:$tor: tor
+0x1286:$tor: tor
+0x1314:$tor: tor
+0xe19:$c2: c2
+0x1374:$c2: c2
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-263.592224-SMB-FU04zE3cO6GpGPONY3
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-263.592224-SMB-FU04zE3cO6GpGPONY3
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-291.811341-SMB-FtoxMc3t3wQBcDyy92
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-291.811341-SMB-FtoxMc3t3wQBcDyy92
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-291.811341-SMB-FtoxMc3t3wQBcDyy92
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-291.811341-SMB-FtoxMc3t3wQBcDyy92
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-291.811341-SMB-FtoxMc3t3wQBcDyy92
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-291.811341-SMB-FtoxMc3t3wQBcDyy92
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-291.811341-SMB-FtoxMc3t3wQBcDyy92
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-240.934485-SMB-FnU8va1hdLdIDwfeej
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-240.934485-SMB-FnU8va1hdLdIDwfeej
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.914496-SMB-F8JC0O3Pe2jikGPmI6
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.914496-SMB-F8JC0O3Pe2jikGPmI6
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.914496-SMB-F8JC0O3Pe2jikGPmI6
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.914496-SMB-F8JC0O3Pe2jikGPmI6
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.914496-SMB-F8JC0O3Pe2jikGPmI6
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.914496-SMB-F8JC0O3Pe2jikGPmI6
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.914496-SMB-F8JC0O3Pe2jikGPmI6
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.914496-SMB-F8JC0O3Pe2jikGPmI6
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.002654-SMB-FwkjmGBmfH1xRXCf9
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.002654-SMB-FwkjmGBmfH1xRXCf9
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.002654-SMB-FwkjmGBmfH1xRXCf9
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-341.002654-SMB-FwkjmGBmfH1xRXCf9
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-177.989564-SMB-FRkYDJOYc6CoyuRZf
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-177.989564-SMB-FRkYDJOYc6CoyuRZf
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-259.710898-SMB-FuyW4S3Duv2pEmwSD8
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-259.710898-SMB-FuyW4S3Duv2pEmwSD8
+HighEntropy_InMemory_Payload [description="High entropy payload",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-259.710898-SMB-FuyW4S3Duv2pEmwSD8
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-259.710898-SMB-FuyW4S3Duv2pEmwSD8
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-259.710898-SMB-FuyW4S3Duv2pEmwSD8
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-259.710898-SMB-FuyW4S3Duv2pEmwSD8
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-327.702083-SMB-FAddke4WWKu2Cyun3
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-327.702083-SMB-FAddke4WWKu2Cyun3
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-327.702083-SMB-FAddke4WWKu2Cyun3
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-327.702083-SMB-FAddke4WWKu2Cyun3
+Ransomware_File_Extensions_Aggressive [description="Wide range of ransomware file extensions",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.47673-SMB-Fil4pF2ylwq4mLJMLk
+0x2bb:$ext8: .hive
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-340.47673-SMB-Fil4pF2ylwq4mLJMLk
+0xbe:$hive1: hive
+0x2bc:$hive1: hive
+0x3f7:$hive1: hive
+0x3f7:$hive2: hiveleak
+0xf6:$onion: .onion
+0x42f:$onion: .onion
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-185.460462-SMB-FHjBAh2UlRbdjr9R9
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-185.460462-SMB-FHjBAh2UlRbdjr9R9
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-185.460462-SMB-FHjBAh2UlRbdjr9R9
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-185.460462-SMB-FHjBAh2UlRbdjr9R9
+C2_Known_Bad_Domains [description="Known malicious C2 domains and infrastructure (2025-2026)",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-134.246928-HTTP-Fe3RxM28gtv9BF2K2b
+0x1d8:$play: Play
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-134.246928-HTTP-Fe3RxM28gtv9BF2K2b
+0x11b0:$tor: tor
+0x11f8:$tor: tor
+0x1286:$tor: tor
+0x1314:$tor: tor
+0xe19:$c2: c2
+0x1374:$c2: c2
+HighEntropy_Dropper [description="High entropy downloader/dropper payload",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-277.774158-SMB-FjGjnh3TAF8qdmm2Nf
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-277.774158-SMB-FjGjnh3TAF8qdmm2Nf
+HighEntropy_Persistence_Payload [description="High entropy payload used for persistence",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-277.774158-SMB-FjGjnh3TAF8qdmm2Nf
+Suspicious_Web_Payload [description="High entropy web payloads (possible obfuscated shell)",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-277.774158-SMB-FjGjnh3TAF8qdmm2Nf
+SQL_Injection [description="SQL Injection attempts",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+0x6016af:$sql3: 1=1
+0xc010:$sql4: --
+0x300b9:$sql4: --
+0x3f0c1:$sql4: --
+0x52082:$sql4: --
+0x7d9db:$sql4: --
+0x8188d:$sql4: --
+0xbb30a:$sql4: --
+0xbebf9:$sql4: --
+0xc02d3:$sql4: --
+0xc51de:$sql4: --
+0xdae97:$sql4: --
+0xdb67a:$sql4: --
+0x11dc73:$sql4: --
+0x12a688:$sql4: --
+0x13c2c9:$sql4: --
+0x144b22:$sql4: --
+0x187d66:$sql4: --
+0x19ab29:$sql4: --
+0x19dbd5:$sql4: --
+0x1b5bba:$sql4: --
+0x1c3e4a:$sql4: --
+0x1d1c2d:$sql4: --
+0x1e8474:$sql4: --
+0x1e9807:$sql4: --
+0x1f2181:$sql4: --
+0x1f44e3:$sql4: --
+0x20e144:$sql4: --
+0x22eb9c:$sql4: --
+0x250f6c:$sql4: --
+0x2617c6:$sql4: --
+0x2646c6:$sql4: --
+0x265ff8:$sql4: --
+0x287a44:$sql4: --
+0x29472d:$sql4: --
+0x29ccf7:$sql4: --
+0x2a803d:$sql4: --
+0x2b4bb7:$sql4: --
+0x2d2cb2:$sql4: --
+0x2e7c6c:$sql4: --
+0x2f1ba2:$sql4: --
+0x2f777c:$sql4: --
+0x2f9c10:$sql4: --
+0x315756:$sql4: --
+0x319b25:$sql4: --
+0x32231e:$sql4: --
+0x34bc13:$sql4: --
+0x352459:$sql4: --
+0x35415d:$sql4: --
+0x3549ea:$sql4: --
+0x3597a7:$sql4: --
+0x35df1f:$sql4: --
+0x37ebcf:$sql4: --
+0x3a74ab:$sql4: --
+0x3a7e19:$sql4: --
+0x3a93b0:$sql4: --
+0x3ac435:$sql4: --
+0x3b1bbf:$sql4: --
+0x3bc0c9:$sql4: --
+0x3c3201:$sql4: --
+0x3d0956:$sql4: --
+0x3d29d7:$sql4: --
+0x3ecc54:$sql4: --
+0x43045f:$sql4: --
+0x44138f:$sql4: --
+0x456e58:$sql4: --
+0x46b464:$sql4: --
+0x470e11:$sql4: --
+0x497c85:$sql4: --
+0x4ab3b0:$sql4: --
+0x4bb89d:$sql4: --
+0x4d0e7c:$sql4: --
+0x4db17b:$sql4: --
+0x53d86a:$sql4: --
+0x54f83b:$sql4: --
+0x555ac5:$sql4: --
+0x55a395:$sql4: --
+0x55e524:$sql4: --
+0x58342a:$sql4: --
+0x5a7ef4:$sql4: --
+0x5a98c8:$sql4: --
+0x5a9c35:$sql4: --
+0x5b62b9:$sql4: --
+0x5bc06b:$sql4: --
+0x5c196a:$sql4: --
+0x5d8139:$sql4: --
+0x5e8f3c:$sql4: --
+0x5f5ebb:$sql4: --
+0x6026bb:$sql4: --
+0x60663a:$sql4: --
+0x61797d:$sql4: --
+0x61b4ce:$sql4: --
+0x61f591:$sql4: --
+0x61f7f4:$sql4: --
+0x64207a:$sql4: --
+0x642f85:$sql4: --
+0x64721c:$sql4: --
+0x65d551:$sql4: --
+0x667fea:$sql4: --
+0x66d156:$sql4: --
+0x6809a9:$sql4: --
+0x6887ea:$sql4: --
+0x68c172:$sql4: --
+0x691b3d:$sql4: --
+0x69f8be:$sql4: --
+0x6a83df:$sql4: --
+0x6b3780:$sql4: --
+0x6b6d3e:$sql4: --
+0x6c255c:$sql4: --
+0x6e0735:$sql4: --
+0x6e90e4:$sql4: --
+0x6fda11:$sql4: --
+0x72eab8:$sql4: --
+0x733a9e:$sql4: --
+0x742604:$sql4: --
+0x76a22d:$sql4: --
+0x789105:$sql4: --
+0x79b522:$sql4: --
+0x79cf56:$sql4: --
+0x7a4a57:$sql4: --
+0x7b7eee:$sql4: --
+0x7cb1ad:$sql4: --
+0x7d8e0f:$sql4: --
+0x7eb196:$sql4: --
+0x7f713a:$sql4: --
+0x7fbb9c:$sql4: --
+0x80d392:$sql4: --
+0x81f738:$sql4: --
+0x84492e:$sql4: --
+0x846cd2:$sql4: --
+0x875d81:$sql4: --
+0x88d265:$sql4: --
+0x8b64ce:$sql4: --
+0x8d3be7:$sql4: --
+0x8d7b22:$sql4: --
+0x8d849c:$sql4: --
+0x8d956e:$sql4: --
+0x8e5737:$sql4: --
+0x8f2f47:$sql4: --
+0x8f9b0e:$sql4: --
+0x8febc9:$sql4: --
+0x91c31e:$sql4: --
+0x9213ce:$sql4: --
+0x930bff:$sql4: --
+0x9379fa:$sql4: --
+0x945d15:$sql4: --
+0x949ce2:$sql4: --
+0x94ebd3:$sql4: --
+0x953595:$sql4: --
+0x9774f1:$sql4: --
+0x98c206:$sql4: --
+0x99d0da:$sql4: --
+0x9a8823:$sql4: --
+0x9ab2c0:$sql4: --
+0x9bb005:$sql4: --
+0x9d2d76:$sql4: --
+0x9dea8f:$sql4: --
+0x9df096:$sql4: --
+0x9fcf14:$sql4: --
+0x9feb3e:$sql4: --
+0xa06f70:$sql4: --
+0xa24a83:$sql4: --
+0xa2e7ef:$sql4: --
+0xa34721:$sql4: --
+0xa3dfbb:$sql4: --
+0xa687a0:$sql4: --
+0xa6a2df:$sql4: --
+0xa712e6:$sql4: --
+0xa7face:$sql4: --
+0xa8d2a7:$sql4: --
+0xa94ab9:$sql4: --
+0xaa23d3:$sql4: --
+0xaa5bda:$sql4: --
+0xab138c:$sql4: --
+0xad2a4d:$sql4: --
+0xad51ac:$sql4: --
+0xadb3ed:$sql4: --
+0xadc1d8:$sql4: --
+0xb25e4c:$sql4: --
+0xb2a7bb:$sql4: --
+0xb3e405:$sql4: --
+0xb437ba:$sql4: --
+0xb4bea7:$sql4: --
+0xb55d97:$sql4: --
+0xb5efc3:$sql4: --
+0xb6b6cf:$sql4: --
+Bulk_Exfiltration [description="Bulk data compression and exfiltration",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+0x8bd5b:$7z: 7z 
+0x474daa:$7z: 7Z 
+0x85c81c:$7z: 7Z 
+High_Entropy_Encrypted [description="Very high entropy - likely encrypted ransomware or C2",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+HighRisk_C2_Communication [description="High confidence C2 communication",severity="CRITICAL"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+0x43e24c:$tor: tOR
+0x5d877d:$tor: tOr
+0x605151:$tor: ToR
+0x6ebe47:$tor: TOR
+0x876598:$tor: toR
+0xa2e01b:$tor: tor
+0xb9ca:$c2: C2
+0xd086:$c2: C2
+0x22393:$c2: c2
+0x2b41f:$c2: c2
+0x2ba94:$c2: c2
+0x31ce3:$c2: C2
+0x36e8a:$c2: c2
+0x53a7f:$c2: c2
+0x70107:$c2: C2
+0x7a574:$c2: c2
+0x81dc2:$c2: C2
+0x87fa5:$c2: C2
+0x8d405:$c2: c2
+0x99353:$c2: C2
+0x9aa7c:$c2: c2
+0xaee6b:$c2: c2
+0xd078b:$c2: c2
+0xddfee:$c2: C2
+0xe01bd:$c2: C2
+0xe3d8b:$c2: c2
+0xfdc82:$c2: c2
+0x10bba5:$c2: c2
+0x11153c:$c2: C2
+0x114174:$c2: c2
+0x11cdd7:$c2: C2
+0x1346e8:$c2: c2
+0x138081:$c2: c2
+0x14bbfe:$c2: c2
+0x168c05:$c2: c2
+0x189c82:$c2: C2
+0x18a161:$c2: c2
+0x1a1be8:$c2: c2
+0x1a878d:$c2: C2
+0x1a8f4a:$c2: c2
+0x1aa4eb:$c2: c2
+0x1b69c0:$c2: C2
+0x1b8a14:$c2: c2
+0x1bc16c:$c2: C2
+0x1bdb31:$c2: c2
+0x1c0afd:$c2: C2
+0x1c88d4:$c2: c2
+0x1ce51a:$c2: c2
+0x1d0a53:$c2: C2
+0x1d10a8:$c2: C2
+0x1e621f:$c2: C2
+0x1e731c:$c2: C2
+0x1e76a1:$c2: c2
+0x1f7fba:$c2: c2
+0x200f1e:$c2: c2
+0x20ea00:$c2: C2
+0x21b216:$c2: C2
+0x21fbaa:$c2: C2
+0x22b466:$c2: C2
+0x22b944:$c2: c2
+0x2310ae:$c2: c2
+0x2347a6:$c2: c2
+0x23a2ca:$c2: C2
+0x247242:$c2: C2
+0x249504:$c2: c2
+0x24cd42:$c2: C2
+0x2516ae:$c2: c2
+0x2642ee:$c2: C2
+0x26a45a:$c2: C2
+0x26fce2:$c2: c2
+0x27e6fa:$c2: C2
+0x27fc15:$c2: C2
+0x291684:$c2: C2
+0x296c18:$c2: C2
+0x29bde4:$c2: c2
+0x29e712:$c2: c2
+0x2aabf2:$c2: c2
+0x2b945c:$c2: c2
+0x2bd67d:$c2: C2
+0x2be33a:$c2: c2
+0x2d3f70:$c2: C2
+0x2da7a3:$c2: C2
+0x2e4115:$c2: c2
+0x2e62ce:$c2: C2
+0x2e676f:$c2: c2
+0x2e8ac0:$c2: C2
+0x2f4fbd:$c2: C2
+0x2fb392:$c2: C2
+0x2fed0a:$c2: c2
+0x2ffe33:$c2: c2
+0x302637:$c2: C2
+0x3112bf:$c2: C2
+0x31340f:$c2: c2
+0x31afa7:$c2: C2
+0x31c4ef:$c2: C2
+0x3233b1:$c2: c2
+0x3299b9:$c2: c2
+0x33b889:$c2: c2
+0x34436f:$c2: c2
+0x344a12:$c2: C2
+0x34ff67:$c2: c2
+0x357ec9:$c2: c2
+0x35d51e:$c2: C2
+0x362ac1:$c2: C2
+0x36576d:$c2: c2
+0x365bb3:$c2: c2
+0x368c06:$c2: C2
+0x381607:$c2: c2
+0x38a842:$c2: c2
+0x396aec:$c2: c2
+0x3a0d17:$c2: c2
+0x3a28b5:$c2: c2
+0x3ad40d:$c2: c2
+0x3b6c44:$c2: C2
+0x3b717d:$c2: C2
+0x3c2923:$c2: C2
+0x3dd69c:$c2: C2
+0x3f94ff:$c2: c2
+0x3fca8c:$c2: C2
+0x4394f1:$c2: C2
+0x4402c5:$c2: c2
+0x44abb4:$c2: C2
+0x44d2ed:$c2: c2
+0x450f2c:$c2: C2
+0x452c49:$c2: C2
+0x456085:$c2: C2
+0x4587dc:$c2: C2
+0x463255:$c2: c2
+0x466ad0:$c2: C2
+0x467c34:$c2: C2
+0x46bfdf:$c2: C2
+0x477113:$c2: c2
+0x47804d:$c2: c2
+0x482351:$c2: C2
+0x486357:$c2: c2
+0x49341c:$c2: c2
+0x496417:$c2: c2
+0x496ec3:$c2: c2
+0x4a4013:$c2: C2
+0x4ab058:$c2: c2
+0x4ac0cb:$c2: C2
+0x4b0f49:$c2: c2
+0x4c28f3:$c2: c2
+0x4c5ae2:$c2: C2
+0x4c7547:$c2: c2
+0x4d0b15:$c2: C2
+0x4d0e48:$c2: C2
+0x4e65c1:$c2: c2
+0x4ebeff:$c2: C2
+0x4ec96c:$c2: c2
+0x4ede25:$c2: c2
+0x4fba98:$c2: c2
+0x50017d:$c2: C2
+0x50787e:$c2: c2
+0x50bac1:$c2: C2
+0x50fdba:$c2: C2
+0x516c5d:$c2: C2
+0x523f9a:$c2: C2
+0x525212:$c2: c2
+0x533d5c:$c2: c2
+0x543725:$c2: C2
+0x54bebb:$c2: C2
+0x555bea:$c2: C2
+0x557e70:$c2: c2
+0x55f0ec:$c2: c2
+0x5681b1:$c2: C2
+0x56b15e:$c2: c2
+0x56d71f:$c2: c2
+0x5707ba:$c2: C2
+0x57715e:$c2: c2
+0x577d39:$c2: C2
+0x577d56:$c2: C2
+0x588df6:$c2: c2
+0x589dab:$c2: C2
+0x5911e2:$c2: C2
+0x593a12:$c2: c2
+0x5cb734:$c2: c2
+0x5d01da:$c2: C2
+0x5d5d8e:$c2: C2
+0x5d63a6:$c2: C2
+0x5dbd2d:$c2: C2
+0x5e080e:$c2: c2
+0x5ea33a:$c2: c2
+0x5f6114:$c2: C2
+0x601ded:$c2: C2
+0x6098e5:$c2: C2
+0x609c85:$c2: c2
+0x60b259:$c2: c2
+0x617a78:$c2: c2
+0x62be14:$c2: C2
+0x62fb5b:$c2: C2
+0x63156b:$c2: c2
+0x634196:$c2: C2
+0x63a65d:$c2: C2
+0x6463cb:$c2: C2
+0x6472fe:$c2: c2
+0x647a8b:$c2: C2
+0x650099:$c2: C2
+0x658cd9:$c2: C2
+0x65b8e8:$c2: c2
+0x6682c3:$c2: c2
+0x670c10:$c2: C2
+0x67608c:$c2: c2
+0x679011:$c2: C2
+0x67dcc7:$c2: c2
+0x6881de:$c2: c2
+0x68c9d6:$c2: C2
+0x691fca:$c2: c2
+0x692290:$c2: C2
+0x69308b:$c2: C2
+0x695b38:$c2: c2
+0x6a805f:$c2: C2
+0x6b70a2:$c2: c2
+0x6bd367:$c2: c2
+0x6cb511:$c2: C2
+0x6e85e3:$c2: C2
+0x6efc19:$c2: C2
+0x6f4bf3:$c2: C2
+0x6f78cf:$c2: c2
+0x6fad65:$c2: C2
+0x714c54:$c2: C2
+0x71a210:$c2: C2
+0x71b079:$c2: C2
+0x71be8e:$c2: c2
+0x723296:$c2: c2
+0x730b7c:$c2: c2
+0x73112e:$c2: c2
+0x7393df:$c2: C2
+0x73a434:$c2: C2
+0x7493a2:$c2: c2
+0x74ab51:$c2: c2
+0x74b7d7:$c2: c2
+0x758761:$c2: C2
+0x763203:$c2: C2
+0x7637d6:$c2: C2
+0x766505:$c2: c2
+0x766839:$c2: c2
+0x78037d:$c2: c2
+0x781300:$c2: c2
+0x784b3a:$c2: c2
+0x793542:$c2: c2
+0x79a3cd:$c2: C2
+0x79b3a6:$c2: C2
+0x7a3092:$c2: C2
+0x7b6c66:$c2: C2
+0x7bcab4:$c2: C2
+0x7c03e1:$c2: c2
+0x7c34b7:$c2: c2
+0x7cb3d9:$c2: C2
+0x7cff5c:$c2: c2
+0x7d688a:$c2: C2
+0x7d75fd:$c2: C2
+0x7d78f0:$c2: C2
+0x7f5215:$c2: C2
+0x800bc7:$c2: C2
+0x802467:$c2: c2
+0x80e9f6:$c2: C2
+0x812ee6:$c2: C2
+0x821ef7:$c2: c2
+0x822bd6:$c2: C2
+0x8232db:$c2: c2
+0x82415e:$c2: C2
+0x8268b9:$c2: c2
+0x82f882:$c2: c2
+0x83f36b:$c2: c2
+0x83f522:$c2: c2
+0x844505:$c2: c2
+0x848aa3:$c2: C2
+0x84ec9c:$c2: c2
+0x8552a4:$c2: c2
+0x859ff2:$c2: c2
+0x8677e2:$c2: c2
+0x867e8c:$c2: C2
+0x86e069:$c2: C2
+0x872db2:$c2: c2
+0x87b1ef:$c2: C2
+0x88c09e:$c2: C2
+0x88e0eb:$c2: C2
+0x898abf:$c2: C2
+0x8ab085:$c2: c2
+0x8ac849:$c2: C2
+0x8b55a0:$c2: C2
+0x8b8a86:$c2: C2
+0x8be5b6:$c2: C2
+0x8c660e:$c2: c2
+0x8d95ce:$c2: C2
+0x8edf40:$c2: c2
+0x8fb966:$c2: C2
+0x8fe080:$c2: C2
+0x904965:$c2: C2
+0x9162fa:$c2: c2
+0x9241de:$c2: C2
+0x9266d9:$c2: c2
+0x92bace:$c2: C2
+0x94e833:$c2: C2
+0x95156f:$c2: C2
+0x954576:$c2: c2
+0x957fd9:$c2: C2
+0x9595ea:$c2: C2
+0x95d21a:$c2: c2
+0x95fe39:$c2: C2
+0x9623f0:$c2: C2
+0x963df2:$c2: c2
+0x964c19:$c2: C2
+0x965ce4:$c2: c2
+0x97eb47:$c2: C2
+0x9820e4:$c2: c2
+0x984094:$c2: c2
+0x9865ca:$c2: c2
+0x990d9b:$c2: C2
+0x992cf3:$c2: C2
+0x9a755e:$c2: c2
+0x9a8b78:$c2: c2
+0x9a8be7:$c2: C2
+0x9ab8b0:$c2: c2
+0x9ac489:$c2: c2
+0x9ad10b:$c2: c2
+0x9bf104:$c2: C2
+0x9c36c4:$c2: c2
+0x9c868c:$c2: C2
+0x9d0148:$c2: C2
+0x9d6f68:$c2: c2
+0x9e47a0:$c2: C2
+0x9e8d22:$c2: c2
+0x9f58a6:$c2: c2
+0x9ff77e:$c2: c2
+0xa1b143:$c2: c2
+0xa21235:$c2: C2
+0xa2ad03:$c2: C2
+0xa2b8b9:$c2: c2
+0xa4bd37:$c2: C2
+0xa4cc78:$c2: C2
+0xa52e02:$c2: c2
+0xa53dea:$c2: C2
+0xa727bd:$c2: c2
+0xa73c90:$c2: c2
+0xa75200:$c2: c2
+0xa7ae89:$c2: C2
+0xa7b2b1:$c2: C2
+0xa7f7d2:$c2: c2
+0xa830c7:$c2: c2
+0xa8ca02:$c2: C2
+0xa90bf0:$c2: c2
+0xaa7d81:$c2: C2
+0xab6963:$c2: c2
+0xab94dd:$c2: C2
+0xac2c14:$c2: c2
+0xac8817:$c2: c2
+0xacdc1b:$c2: c2
+0xad4053:$c2: C2
+0xadb85e:$c2: c2
+0xadf4c3:$c2: c2
+0xae5f95:$c2: c2
+0xaf78cd:$c2: C2
+0xaf825d:$c2: c2
+0xb00341:$c2: c2
+0xb0ee04:$c2: C2
+0xb10d11:$c2: c2
+0xb28b02:$c2: c2
+0xb3407f:$c2: C2
+0xb388d5:$c2: c2
+0xb3b21a:$c2: c2
+0xb3fec0:$c2: C2
+0xb663c9:$c2: c2
+0xb69874:$c2: C2
+0xb7072a:$c2: C2
+0xb8084e:$c2: c2
+0x2c4b36:$command: cmD
+0x43672c:$command: CMd
+0x5bf5e4:$command: cMd
+0x600d53:$command: cmd
+0x958872:$command: cmd
+Encrypted_C2_Channel [description="Encrypted C2 channels with high entropy",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+Curl_Wget_Downloader [description="Curl / Wget downloader patterns",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+0x589e6f:$output: -O 
+0x7fe6a3:$output: -O 
+T1027_Obfuscated_Files [description="T1027: Obfuscated Files or Information",mitre_technique="T1027",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+T1547_Boot_or_Logon_Autostart [description="T1547: Boot or Logon Autostart Execution",mitre_technique="T1547",severity="HIGH"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+0x4f315:$run: run
+0x20c5fc:$run: ruN
+0x212565:$run: run
+0x51206c:$run: Run
+0x526905:$run: rUN
+0x6094f5:$run: Run
+0x81ad88:$run: rUN
+0x8c2447:$run: ruN
+0x9f4a88:$run: rUN
+High_Entropy_Payload_Tuned [description="Encrypted payload",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+SQL_Injection_Attempts [description="SQL Injection patterns",severity="MEDIUM"] /home/comrade/Documents/V1_Recon/processed/Hive_06082021/zeek/extract_files//extract-155.894474-SMB-FJcD3Y1klP1z4VPcl2
+0x6016af:$sql3: 1=1
+0xc010:$sql4: --
+0x300b9:$sql4: --
+0x3f0c1:$sql4: --
+0x52082:$sql4: --
+0x7d9db:$sql4: --
+0x8188d:$sql4: --
+0xbb30a:$sql4: --
+0xbebf9:$sql4: --
+0xc02d3:$sql4: --
+0xc51de:$sql4: --
+0xdae97:$sql4: --
+0xdb67a:$sql4: --
+0x11dc73:$sql4: --
+0x12a688:$sql4: --
+0x13c2c9:$sql4: --
+0x144b22:$sql4: --
+0x187d66:$sql4: --
+0x19ab29:$sql4: --
+0x19dbd5:$sql4: --
+0x1b5bba:$sql4: --
+0x1c3e4a:$sql4: --
+0x1d1c2d:$sql4: --
+0x1e8474:$sql4: --
+0x1e9807:$sql4: --
+0x1f2181:$sql4: --
+0x1f44e3:$sql4: --
+0x20e144:$sql4: --
+0x22eb9c:$sql4: --
+0x250f6c:$sql4: --
+0x2617c6:$sql4: --
+0x2646c6:$sql4: --
+0x265ff8:$sql4: --
+0x287a44:$sql4: --
+0x29472d:$sql4: --
+0x29ccf7:$sql4: --
+0x2a803d:$sql4: --
+0x2b4bb7:$sql4: --
+0x2d2cb2:$sql4: --
+0x2e7c6c:$sql4: --
+0x2f1ba2:$sql4: --
+0x2f777c:$sql4: --
+0x2f9c10:$sql4: --
+0x315756:$sql4: --
+0x319b25:$sql4: --
+0x32231e:$sql4: --
+0x34bc13:$sql4: --
+0x352459:$sql4: --
+0x35415d:$sql4: --
+0x3549ea:$sql4: --
+0x3597a7:$sql4: --
+0x35df1f:$sql4: --
+0x37ebcf:$sql4: --
+0x3a74ab:$sql4: --
+0x3a7e19:$sql4: --
+0x3a93b0:$sql4: --
+0x3ac435:$sql4: --
+0x3b1bbf:$sql4: --
+0x3bc0c9:$sql4: --
+0x3c3201:$sql4: --
+0x3d0956:$sql4: --
+0x3d29d7:$sql4: --
+0x3ecc54:$sql4: --
+0x43045f:$sql4: --
+0x44138f:$sql4: --
+0x456e58:$sql4: --
+0x46b464:$sql4: --
+0x470e11:$sql4: --
+0x497c85:$sql4: --
+0x4ab3b0:$sql4: --
+0x4bb89d:$sql4: --
+0x4d0e7c:$sql4: --
+0x4db17b:$sql4: --
+0x53d86a:$sql4: --
+0x54f83b:$sql4: --
+0x555ac5:$sql4: --
+0x55a395:$sql4: --
+0x55e524:$sql4: --
+0x58342a:$sql4: --
+0x5a7ef4:$sql4: --
+0x5a98c8:$sql4: --
+0x5a9c35:$sql4: --
+0x5b62b9:$sql4: --
+0x5bc06b:$sql4: --
+0x5c196a:$sql4: --
+0x5d8139:$sql4: --
+0x5e8f3c:$sql4: --
+0x5f5ebb:$sql4: --
+0x6026bb:$sql4: --
+0x60663a:$sql4: --
+0x61797d:$sql4: --
+0x61b4ce:$sql4: --
+0x61f591:$sql4: --
+0x61f7f4:$sql4: --
+0x64207a:$sql4: --
+0x642f85:$sql4: --
+0x64721c:$sql4: --
+0x65d551:$sql4: --
+0x667fea:$sql4: --
+0x66d156:$sql4: --
+0x6809a9:$sql4: --
+0x6887ea:$sql4: --
+0x68c172:$sql4: --
+0x691b3d:$sql4: --
+0x69f8be:$sql4: --
+0x6a83df:$sql4: --
+0x6b3780:$sql4: --
+0x6b6d3e:$sql4: --
+0x6c255c:$sql4: --
+0x6e0735:$sql4: --
+0x6e90e4:$sql4: --
+0x6fda11:$sql4: --
+0x72eab8:$sql4: --
+0x733a9e:$sql4: --
+0x742604:$sql4: --
+0x76a22d:$sql4: --
+0x789105:$sql4: --
+0x79b522:$sql4: --
+0x79cf56:$sql4: --
+0x7a4a57:$sql4: --
+0x7b7eee:$sql4: --
+0x7cb1ad:$sql4: --
+0x7d8e0f:$sql4: --
+0x7eb196:$sql4: --
+0x7f713a:$sql4: --
+0x7fbb9c:$sql4: --
+0x80d392:$sql4: --
+0x81f738:$sql4: --
+0x84492e:$sql4: --
+0x846cd2:$sql4: --
+0x875d81:$sql4: --
+0x88d265:$sql4: --
+0x8b64ce:$sql4: --
+0x8d3be7:$sql4: --
+0x8d7b22:$sql4: --
+0x8d849c:$sql4: --
+0x8d956e:$sql4: --
+0x8e5737:$sql4: --
+0x8f2f47:$sql4: --
+0x8f9b0e:$sql4: --
+0x8febc9:$sql4: --
+0x91c31e:$sql4: --
+0x9213ce:$sql4: --
+0x930bff:$sql4: --
+0x9379fa:$sql4: --
+0x945d15:$sql4: --
+0x949ce2:$sql4: --
+0x94ebd3:$sql4: --
+0x953595:$sql4: --
+0x9774f1:$sql4: --
+0x98c206:$sql4: --
+0x99d0da:$sql4: --
+0x9a8823:$sql4: --
+0x9ab2c0:$sql4: --
+0x9bb005:$sql4: --
+0x9d2d76:$sql4: --
+0x9dea8f:$sql4: --
+0x9df096:$sql4: --
+0x9fcf14:$sql4: --
+0x9feb3e:$sql4: --
+0xa06f70:$sql4: --
+0xa24a83:$sql4: --
+0xa2e7ef:$sql4: --
+0xa34721:$sql4: --
+0xa3dfbb:$sql4: --
+0xa687a0:$sql4: --
+0xa6a2df:$sql4: --
+0xa712e6:$sql4: --
+0xa7face:$sql4: --
+0xa8d2a7:$sql4: --
+0xa94ab9:$sql4: --
+0xaa23d3:$sql4: --
+0xaa5bda:$sql4: --
+0xab138c:$sql4: --
+0xad2a4d:$sql4: --
+0xad51ac:$sql4: --
+0xadb3ed:$sql4: --
+0xadc1d8:$sql4: --
+0xb25e4c:$sql4: --
+0xb2a7bb:$sql4: --
+0xb3e405:$sql4: --
+0xb437ba:$sql4: --
+0xb4bea7:$sql4: --
+0xb55d97:$sql4: --
+0xb5efc3:$sql4: --
+0xb6b6cf:$sql4: --

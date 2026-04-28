@@ -1,2 +1,0 @@
-{"ts":1772308506.482909,"uids":["CiF0iW1AuzKT0rM9G7"],"mac":"00:e0:4c:68:08:00","host_name":"brads-MBP","msg_types":["DISCOVER"],"duration":0.0}
-{"ts":1772308507.959671,"uids":["CiF0iW1AuzKT0rM9G7","CsJ1Mz1rkXN8hk2OEi"],"client_addr":"10.2.28.88","server_addr":"10.2.28.1","mac":"00:19:d1:b2:4d:ad","host_name":"DESKTOP-TEYQ2NR","client_fqdn":"DESKTOP-TEYQ2NR.easyas123.tech","domain":"mshome.net","requested_addr":"10.2.28.88","assigned_addr":"10.2.28.88","lease_time":604800.0,"msg_types":["REQUEST","REQUEST","ACK"],"duration":2.829422950744629}

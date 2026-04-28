@@ -1,0 +1,14 @@
+# Phase 2 IOC Processing Pipeline — Python dependencies
+# Install with:  pip install -r requirements.txt --break-system-packages
+
+# Async HTTP client (enrichment engine)
+aiohttp>=3.9.0
+
+# Redis client (caching layer)
+redis>=5.0.0
+
+# YARA bindings (file scanning)
+yara-python>=4.5.0
+
+# Standard-library modules used (no install needed):
+#   asyncio, hashlib, ipaddress, json, logging, pathlib, time, typing

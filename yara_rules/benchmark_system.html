@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YARA Rule Benchmark Scanner</title>
+    <style>
+        :root {
+            --bg-dark: #0f111a;
+            --bg-panel: #1a1f2e;
+            --bg-input: #131722;
+            --primary: #00ff9d;
+            --primary-dim: rgba(0, 255, 157, 0.1);
+            --danger: #ff4b4b;
+            --text-main: #e0e6ed;
+            --text-muted: #94a3b8;
+            --border: #2d3748;
+            --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; outline: none; }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            height: 60px;
+            background: var(--bg-panel);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand span { color: var(--primary); }
+
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--text-muted);
+            transition: background-color 0.3s;
+        }
+        
+        .status-dot.active { background-color: var(--primary); box-shadow: 0 0 8px var(--primary); }
+        .status-dot.error { background-color: var(--danger); }
+
+        /* --- Main Layout --- */
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 350px 1fr 350px;
+            gap: 1px;
+            background-color: var(--border); /* Creates gap lines */
+            overflow: hidden;
+        }
+
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 300px 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+            .panel-right { grid-column: 1 / -1; }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                display: flex;
+                flex-direction: column;
+                overflow-y: auto;
+            }
+        }
+
+        .panel {
+            background-color: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-content {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        /* --- Rule Editor --- */
+        .code-editor {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 13px;
+            padding: 15px;
+            resize: none;
+            border-radius: 4px;
+            line-height: 1.5;
+        }
+        
+        .code-editor:focus { border-color: var(--primary); }
+
+        /* --- Upload Area --- */
+        .drop-zone {
+            border: 2px dashed var(--border);
+            border-radius: 6px;
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            transition: all 0.2s;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .drop-zone:hover, .drop-zone.dragover {
+            border-color: var(--primary);
+            background: var(--primary-dim);
+            color: var(--primary);
+        }
+
+        .file-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 10px;
+            background: var(--bg-panel);
+            margin-bottom: 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border-left: 3px solid transparent;
+        }
+
+        .file-item.match { border-left-color: var(--danger); }
+        .file-item.clean { border-left-color: var(--primary); }
+
+        .file-meta { color: var(--text-muted); font-size: 0.75rem; }
+
+        /* --- Dashboard & Charts --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: var(--bg-panel);
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--text-main); margin-top: 5px; }
+        .stat-sub { font-size: 0.8rem; color: var(--primary); }
+
+        canvas {
+            width: 100%;
+            height: 180px;
+            margin-top: 10px;
+            background: var(--bg-panel);
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        /* --- Controls & Actions --- */
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-primary { background: var(--primary); color: #000; }
+        .btn-secondary { background: var(--bg-panel); color: var(--text-main); border: 1px solid var(--border); }
+        .btn-danger { background: rgba(255, 75, 75, 0.1); color: var(--danger); border: 1px solid var(--danger); }
+
+        .btn-primary:hover:not(:disabled) { filter: brightness(1.1); }
+
+        /* --- Progress Bar --- */
+        .progress-container {
+            height: 4px;
+            background: var(--bg-panel);
+            width: 100%;
+            position: relative;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* --- Logs --- */
+        .console-logs {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            height: 150px;
+            overflow-y: auto;
+            background: #000;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .log-entry { margin-bottom: 4px; border-bottom: 1px solid #222; padding-bottom: 2px; }
+        .log-time { color: var(--primary); margin-right: 8px; }
+        .log-info { color: #88c0d0; }
+        .log-warn { color: #ebcb8b; }
+        .log-match { color: var(--danger); font-weight: bold; }
+
+        /* --- Toast Notification --- */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-panel);
+            border-left: 4px solid var(--primary);
+            padding: 15px 25px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="brand">
+        <span>⚡</span> YARA Benchmark Scanner
+    </div>
+    <div class="status-badge">
+        <div class="status-dot" id="status-dot"></div>
+        <span id="status-text">Idle</span>
+    </div>
+</header>
+
+<main>
+    <!-- LEFT: Rules Input -->
+    <section class="panel">
+        <div class="panel-header">
+            Rule Source
+            <button class="btn-secondary" style="padding: 4px 8px; font-size: 0.7rem;" onclick="loadDemoRules()">Load Demo</button>
+        </div>
+        <div class="panel-content">
+            <textarea id="rule-editor" class="code-editor" placeholder="Paste your YARA rules here..." spellcheck="false"></textarea>
+        </div>
+    </section>
+
+    <!-- CENTER: Samples & Controls -->
+    <section class="panel">
+        <div class="panel-header">Target Samples</div>
+        <div class="panel-content">
+            <div class="controls">
+                <button id="btn-scan" class="btn-primary" onclick="startBenchmark()">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"></path></svg>
+                    Run Benchmark
+                </button>
+                <button id="btn-stop" class="btn-danger" onclick="stopBenchmark()" disabled>
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                    Stop
+                </button>
+                <button id="btn-clear" class="btn-secondary" onclick="clearSamples()">Clear</button>
+            </div>
+
+            <div class="progress-container" id="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <div class="drop-zone" id="drop-zone">
+                <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom: 10px;"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                <div>Drag & Drop files here<br><span style="font-size: 0.8em">or click to browse</span></div>
+                <input type="file" id="file-input" multiple style="display: none;">
+            </div>
+
+            <div style="margin-top: 20px;">
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; display:flex; justify-content:space-between;">
+                    <span>Sample Queue</span>
+                    <span id="file-count">0 files</span>
+                </div>
+                <ul class="file-list" id="file-list">
+                    <!-- Files will appear here -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- RIGHT: Results & Logs -->
+    <section class="panel panel-right">
+        <div class="panel-header">Benchmark Results</div>
+        <div class="panel-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Time</div>
+                    <div class="stat-value" id="res-time">0.0s</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Throughput</div>
+                    <div class="stat-value" id="res-throughput">0 <span style="font-size:0.8rem">files/s</span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Detections</div>
+                    <div class="stat-value" id="res-detections" style="color: var(--danger)">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Latency</div>
+                    <div class="stat-value" id="res-avg">0ms</div>
+                </div>
+            </div>
+
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 5px;">Scan Time Distribution (ms)</div>
+            <canvas id="perf-chart"></canvas>
+
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin: 20px 0 5px;">Execution Log</div>
+            <div class="console-logs" id="console-logs">
+                <div class="log-entry"><span class="log-time">System:</span> Ready to scan.</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="toast" id="toast">Notification Message</div>
+
+<script>
+    // --- State Management ---
+    const state = {
+        files: [], // Array of File objects
+        isScanning: false,
+        shouldStop: false,
+        results: [], // Array of result objects
+        startTime: 0
+    };
+
+    // --- DOM Elements ---
+    const els = {
+        dropZone: document.getElementById('drop-zone'),
+        fileInput: document.getElementById('file-input'),
+        fileList: document.getElementById('file-list'),
+        fileCount: document.getElementById('file-count'),
+        ruleEditor: document.getElementById('rule-editor'),
+        btnScan: document.getElementById('btn-scan'),
+        btnStop: document.getElementById('btn-stop'),
+        btnClear: document.getElementById('btn-clear'),
+        progressBar: document.getElementById('progress-bar'),
+        progressContainer: document.getElementById('progress-container'),
+        console: document.getElementById('console-logs'),
+        statusDot: document.getElementById('status-dot'),
+        statusText: document.getElementById('status-text'),
+        chart: document.getElementById('perf-chart'),
+        // Stats
+        resTime: document.getElementById('res-time'),
+        resThroughput: document.getElementById('res-throughput'),
+        resDetections: document.getElementById('res-detections'),
+        resAvg: document.getElementById('res-avg'),
+        toast: document.getElementById('toast')
+    };
+
+    // --- Demo Rules ---
+    const demoRules = `rule Demo_Rule_Malware {
+    meta:
+        description = "This is a demo rule for benchmarking"
+        author = "Scanner Admin"
+    strings:
+        $malicious = "malicious_payload" nocase
+        $evil_exe = { 4D 5A 90 00 } // MZ header
+    condition:
+        $malicious or $evil_exe
+}
+
+rule High_Entropy {
+    strings:
+        $a = "payload" fullword
+    condition:
+        #a > 2
+}`;
+
+    // --- Initialization ---
+    function init() {
+        // Drag and Drop
+        els.dropZone.addEventListener('click', () => els.fileInput.click());
+        els.fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            els.dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            els.dropZone.addEventListener(eventName, () => els.dropZone.classList.add('dragover'), false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            els.dropZone.addEventListener(eventName, () => els.dropZone.classList.remove('dragover'), false);
+        });
+
+        els.dropZone.addEventListener('drop', (e) => handleFiles(e.dataTransfer.files), false);
+
+        // Canvas Setup
+        resizeChart();
+        window.addEventListener('resize', resizeChart);
+    }
+
+    function resizeChart() {
+        els.chart.width = els.chart.parentElement.clientWidth;
+        els.chart.height = 180;
+    }
+
+    // --- File Handling ---
+    function handleFiles(fileList) {
+        if (state.isScanning) return;
+
+        const newFiles = Array.from(fileList);
+        state.files = [...state.files, ...newFiles];
+        renderFileList();
+        showToast(`${newFiles.length} files added to queue`);
+    }
+
+    function renderFileList() {
+        els.fileList.innerHTML = '';
+        els.fileCount.textContent = `${state.files.length} files`;
+
+        state.files.forEach((file, index) => {
+            const li = document.createElement('li');
+            li.className = 'file-item';
+            // Check if we already have a result for this index
+            const result = state.results[index];
+            if (result) {
+                li.classList.add(result.match ? 'match' : 'clean');
+            }
+
+            li.innerHTML = `
+                <div>
+                    <div style="font-weight:500; word-break:break-all;">${file.name}</div>
+                    <div class="file-meta">${formatBytes(file.size)}</div>
+                </div>
+                <div class="file-meta" style="text-align:right">
+                    ${result ? (result.match ? 'DETECTED' : `${result.time}ms`) : 'PENDING'}
+                </div>
+            `;
+            els.fileList.appendChild(li);
+        });
+    }
+
+    function clearSamples() {
+        if (state.isScanning) return;
+        state.files = [];
+        state.results = [];
+        renderFileList();
+        resetStats();
+        log("Queue cleared.");
+    }
+
+    function loadDemoRules() {
+        els.ruleEditor.value = demoRules;
+        showToast("Demo rules loaded");
+    }
+
+    // --- Benchmarking Engine (Simulation) ---
+    async function startBenchmark() {
+        if (state.files.length === 0) {
+            showToast("Please add sample files first.", "error");
+            return;
+        }
+        if (!els.ruleEditor.value.trim()) {
+            showToast("Please define YARA rules.", "error");
+            return;
+        }
+
+        // Reset State
+        state.isScanning = true;
+        state.shouldStop = false;
+        state.results = new Array(state.files.length).fill(null);
+        state.startTime = performance.now();
+        
+        // UI Updates
+        els.btnScan.disabled = true;
+        els.btnStop.disabled = false;
+        els.progressContainer.style.display = 'block';
+        setStatus('active', 'Scanning...');
+        resetStats();
+        renderFileList(); // clear previous status indicators
+
+        const totalFiles = state.files.length;
+
+        // Process Loop
+        for (let i = 0; i < totalFiles; i++) {
+            if (state.shouldStop) break;
+
+            const file = state.files[i];
+            const result = await scanFile(file, els.ruleEditor.value);
+            
+            state.results[i] = result;
+            
+            // Update UI for this specific item
+            updateFileItemUI(i, result);
+            
+            // Update Progress
+            const progress = ((i + 1) / totalFiles) * 100;
+            els.progressBar.style.width = `${progress}%`;
+
+            // Update Live Stats
+            updateLiveStats();
+        }
+
+        finishBenchmark();
+    }
+
+    function stopBenchmark() {
+        if (state.isScanning) {
+            state.shouldStop = true;
+            setStatus('error', 'Stopping...');
+        }
+    }
+
+    function finishBenchmark() {
+        state.isScanning = false;
+        els.btnScan.disabled = false;
+        els.btnStop.disabled = true;
+        setStatus('idle', 'Completed');
+        log("Benchmark finished.", "info");
+        drawChart();
+    }
+
+    /**
+     * SIMULATED SCAN FUNCTION
+     * In a real app, you would use yara-wasm here.
+     * Since we can't embed the WASM binary in this file, we simulate the time taken
+     * and generate a pseudo-detection based on file name/size to make the demo interactive.
+     */
+    function scanFile(file, rules) {
+        return new Promise((resolve) => {
+            // Simulate async processing delay (10ms to 150ms)
+            // Real YARA scanning is fast, but heavier on larger files.
+            const baseTime = Math.random() * 50; 
+            const sizeFactor = (file.size / 1024) * 0.1; 
+            const delay = Math.min(300, Math.max(20, baseTime + sizeFactor));
+
+            setTimeout(() => {
+                // Simulation Logic:
+                // 1. 20% chance of random match
+                // 2. If filename contains "malware" or "virus", 100% match
+                // 3. If filename contains "clean", 0% match
+                let isMatch = Math.random() < 0.2;
+                const nameLower = file.name.toLowerCase();
+
+                if (nameLower.includes('malware') || nameLower.includes('virus') || nameLower.includes('test')) {
+                    isMatch = true;
+                }
+                if (nameLower.includes('clean') || nameLower.includes('txt')) {
+                    isMatch = false;
+                }
+
+                resolve({
+                    match: isMatch,
+                    time: Math.round(delay),
+                    rules: isMatch ? ['Demo_Rule_Malware'] : []
+                });
+            }, delay);
+        });
+    }
+
+    function updateFileItemUI(index, result) {
+        // We re-render the specific list item if it exists, 
+        // but for simplicity in vanilla JS, we just update the DOM text content of the specific node
+        const listItems = els.fileList.children;
+        if (listItems[index]) {
+            const item = listItems[index];
+            item.classList.add(result.match ? 'match' : 'clean');
+            const metaDiv = item.querySelector('.file-meta:last-child');
+            metaDiv.textContent = result.match ? 'DETECTED' : `${result.time}ms`;
+            
+            if (result.match) {
+                log(`[MATCH] ${state.files[index].name} matched ${result.rules.join(', ')}`, 'match');
+            } else {
+                log(`[SCAN] ${state.files[index].name} clean (${result.time}ms)`);
+            }
+        }
+    }
+
+    // --- Stats & Visualization ---
+    function resetStats() {
+        els.resTime.textContent = "0.0s";
+        els.resThroughput.textContent = "0 files/s";
+        els.resDetections.textContent = "0";
+        els.resAvg.textContent = "0ms";
+        els.progressBar.style.width = "0%";
+        const ctx = els.chart.getContext('2d');
+        ctx.clearRect(0, 0, els.chart.width, els.chart.height);
+    }
+
+    function updateLiveStats() {
+        const completed = state.results.filter(r => r !== null).length;
+        if (completed === 0) return;
+
+        const totalTime = (performance.now() - state.startTime) / 1000;
+        const detections = state.results.filter(r => r && r.match).length;
+        const totalScanTime = state.results.reduce((acc, r) => acc + (r ? r.time : 0), 0);
+        const avg = totalScanTime / completed;
+
+        els.resTime.textContent = totalTime.toFixed(2) + "s";
+        els.resThroughput.textContent = (completed / totalTime).toFixed(1);
+        els.resDetections.textContent = detections;
+        els.resAvg.textContent = Math.round(avg) + "ms";
+    }
+
+    function drawChart() {
+        const ctx = els.chart.getContext('2d');
+        const w = els.chart.width;
+        const h = els.chart.height;
+        const padding = 30;
+        
+        ctx.clearRect(0, 0, w, h);
+        
+        // Axes
+        ctx.beginPath();
+        ctx.strokeStyle = '#2d3748';
+        ctx.lineWidth = 1;
+        ctx.moveTo(padding, 10);
+        ctx.lineTo(padding, h - padding);
+        ctx.lineTo(w - 10, h - padding);
+        ctx.stroke();
+
+        // Data
+        const data = state.results.map(r => r ? r.time : 0);
+        if (data.length === 0) return;
+
+        const maxVal = Math.max(...data, 100); // Minimum scale 100ms
+        const barWidth = (w - padding - 20) / data.length;
+
+        data.forEach((val, i) => {
+            const barHeight = (val / maxVal) * (h - padding - 20);
+            const x = padding + 5 + (i * barWidth);
+            const y = h - padding - barHeight;
+
+            // Color based on match (if we had match info in data array, but here we just do time)
+            // Let's color red if it's a match
+            const isMatch = state.results[i] && state.results[i].match;
+            ctx.fillStyle = isMatch ? '#ff4b4b' : '#00ff9d';
+
+            // Draw Bar
+            ctx.fillRect(x, y, Math.max(1, barWidth - 2), barHeight);
+        });
+
+        // Labels
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '10px monospace';
+        ctx.fillText('0', padding - 15, h - padding);
+        ctx.fillText(maxVal + 'ms', padding - 35, 20);
+    }
+
+    // --- Utilities ---
+    function log(msg, type = 'normal') {
+        const div = document.createElement('div');
+        div.className = 'log-entry';
+        const time = new Date().toLocaleTimeString().split(' ')[0];
+        
+        let typeClass = '';
+        if (type === 'match') typeClass = 'log-match';
+        if (type === 'info') typeClass = 'log-info';
+
+        div.innerHTML = `<span class="log-time">[${time}]</span> <span class="${typeClass}">${msg}</span>`;
+        els.console.appendChild(div);
+        els.console.scrollTop = els.console.scrollHeight;
+    }
+
+    function setStatus(state, text) {
+        els.statusDot.className = 'status-dot'; // reset
+        if (state === 'active') els.statusDot.classList.add('active');
+        if (state === 'error') els.statusDot.classList.add('error');
+        els.statusText.textContent = text;
+    }
+
+    function formatBytes(bytes, decimals = 2) {
+        if (!+bytes) return '0 Bytes';
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
+    }
+
+    function showToast(msg, type = 'success') {
+        els.toast.textContent = msg;
+        els.toast.style.borderLeftColor = type === 'error' ? 'var(--danger)' : 'var(--primary)';
+        els.toast.classList.add('show');
+        setTimeout(() => els.toast.classList.remove('show'), 3000);
+    }
+
+    // Run Init
+    init();
+
+</script>
+</body>
+</html>

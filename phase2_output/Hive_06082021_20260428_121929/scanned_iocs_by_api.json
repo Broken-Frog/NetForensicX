@@ -1,0 +1,42 @@
+[
+  {
+    "ioc_value": "pcb",
+    "ioc_type": "domain",
+    "apis_scanned": [
+      "OTX AlienVault"
+    ],
+    "timestamp": 1777358999.137089
+  },
+  {
+    "ioc_value": "WORKGROUP",
+    "ioc_type": "domain",
+    "apis_scanned": [
+      "OTX AlienVault"
+    ],
+    "timestamp": 1777358999.1371264
+  },
+  {
+    "ioc_value": "isatap",
+    "ioc_type": "domain",
+    "apis_scanned": [
+      "OTX AlienVault"
+    ],
+    "timestamp": 1777358999.1372547
+  },
+  {
+    "ioc_value": "wpad",
+    "ioc_type": "domain",
+    "apis_scanned": [
+      "OTX AlienVault"
+    ],
+    "timestamp": 1777358999.137274
+  },
+  {
+    "ioc_value": "pca",
+    "ioc_type": "domain",
+    "apis_scanned": [
+      "OTX AlienVault"
+    ],
+    "timestamp": 1777359002.2093863
+  }
+]

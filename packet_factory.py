@@ -453,6 +453,16 @@ def combine_extracted_payloads(
                 dst = extracted_dir / f"zeek_{item.name}"
             move_jobs.append((str(item), str(dst)))
 
+    # Zeek: files from extract-all-files framework
+    zeek_extract_dir = zeek_dir / "extract_files"
+    if zeek_extract_dir.is_dir():
+        for item in zeek_extract_dir.iterdir():
+            if item.is_file():
+                dst = extracted_dir / item.name
+                if dst.exists():
+                    dst = extracted_dir / f"zeek_{item.name}"
+                move_jobs.append((str(item), str(dst)))
+
     # Suricata file_store
     file_store = suri_dir / "file_store"
     if file_store.is_dir():
@@ -472,6 +482,13 @@ def combine_extracted_payloads(
         if file_store.is_dir():
             try:
                 file_store.rmdir()
+            except OSError:
+                pass
+                
+        # Remove empty zeek extract_files dir if it now exists
+        if zeek_extract_dir.is_dir():
+            try:
+                zeek_extract_dir.rmdir()
             except OSError:
                 pass
 

@@ -1,0 +1,8 @@
+include "aggressive_attacks.yar"
+include "c2_infrastructure.yar"
+include "downloaders_droppers.yar"
+include "fileless_malware.yar"
+include "mitre_evasion.yar"
+include "network_forensics.yar"
+include "persistence_mechanisms.yar"
+include "web_attacks.yar"
