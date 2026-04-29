@@ -7,4 +7,4 @@ extracted_payloads/
 frontend/
 api/
 *.yml
-
+processed/
