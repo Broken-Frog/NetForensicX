@@ -3,4 +3,8 @@
 env/
 *.pcap
 __pychache_
-extracted_payloads/_
+extracted_payloads/
+frontend/
+api/
+*.yml
+

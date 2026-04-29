@@ -362,7 +362,7 @@ async def enrich_iocs_async(
         fhash = ioc.get("file_hash")
         domain = ioc.get("domain") # Assuming domains might be extracted
         
-        if ip and not _is_private(ip):
+        if ip and not ioc.get("is_private", False):
             work_items.add((ip, "ip"))
         if fhash:
             work_items.add((fhash, "hash"))

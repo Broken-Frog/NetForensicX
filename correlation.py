@@ -12,6 +12,7 @@ import argparse
 import json
 from pathlib import Path
 from typing import Any, Dict, List, Set, Optional
+from config import VOLUMETRIC_THRESHOLD_DOS, VOLUMETRIC_THRESHOLD_PORT_SCAN
 
 def _load_json_lines(path: Path) -> List[Dict]:
     if not path.exists():
@@ -74,6 +75,30 @@ def build_attack_chains(
     http = _load_json_lines(zeek_dir / "http.json")
     dns = _load_json_lines(zeek_dir / "dns.json")
     
+    # 3.5. Hostname Identity Extraction
+    ip_to_hostname = {}
+    
+    dhcp = _load_json_lines(zeek_dir / "dhcp.json")
+    for d in dhcp:
+        ip = d.get("client_addr") or d.get("assigned_ip")
+        name = d.get("host_name") or d.get("client_fqdn")
+        if ip and name:
+            ip_to_hostname[ip] = name
+            
+    ntlm = _load_json_lines(zeek_dir / "ntlm.json")
+    for n in ntlm:
+        ip = n.get("id.orig_h")
+        name = n.get("hostname")
+        if ip and name:
+            ip_to_hostname[ip] = name
+            
+    kerberos = _load_json_lines(zeek_dir / "kerberos.json")
+    for k in kerberos:
+        ip = k.get("id.orig_h")
+        name = k.get("client")
+        if ip and name and "/" not in name:
+            ip_to_hostname[ip] = name
+    
     # Organize zeek events by UID
     sessions: Dict[str, Dict] = {}
     
@@ -82,8 +107,11 @@ def build_attack_chains(
         if uid:
             sessions[uid] = {
                 "uid": uid,
+                "ts": c.get("ts"),
                 "orig_h": c.get("id.orig_h"),
                 "resp_h": c.get("id.resp_h"),
+                "orig_hostname": ip_to_hostname.get(c.get("id.orig_h")),
+                "resp_hostname": ip_to_hostname.get(c.get("id.resp_h")),
                 "proto": c.get("proto"),
                 "service": c.get("service"),
                 "orig_p": c.get("id.orig_p"),
@@ -139,11 +167,33 @@ def build_attack_chains(
         if fid and fid in flow_to_alerts:
             sess["suricata_alerts"].extend(flow_to_alerts[fid])
 
+    # 4.5. Volumetric Analysis Pre-Processing
+    src_conn_counts = {}
+    target_conn_counts = {}
+    for uid, sess in sessions.items():
+        src = sess.get("orig_h")
+        target = (sess.get("orig_h"), sess.get("resp_h"), sess.get("resp_p"))
+        if src:
+            src_conn_counts[src] = src_conn_counts.get(src, 0) + 1
+        if target[0] and target[1]:
+            target_conn_counts[target] = target_conn_counts.get(target, 0) + 1
+
     # 5. Calculate Severity Score per Session
     for uid, sess in sessions.items():
         score = 0
         hits = []
         
+        # 5e. Volumetric Anomaly Detection
+        src = sess.get("orig_h")
+        target = (sess.get("orig_h"), sess.get("resp_h"), sess.get("resp_p"))
+        
+        if src and src_conn_counts.get(src, 0) > VOLUMETRIC_THRESHOLD_DOS:
+            score += 80
+            hits.append(f"Volumetric Anomaly: High connection rate from {src} ({src_conn_counts[src]} Conns)")
+        elif target[0] and target[1] and target_conn_counts.get(target, 0) > VOLUMETRIC_THRESHOLD_PORT_SCAN:
+            score += 80
+            hits.append(f"Volumetric Anomaly: Targeted attack on {target[1]}:{target[2]} ({target_conn_counts[target]} Conns)")
+            
         # 5a. Suricata Alerts
         if sess["suricata_alerts"]:
             score += 50
@@ -161,28 +211,41 @@ def build_attack_chains(
                 
             if intel.get("is_malicious_ip"):
                 score += 20
-                hits.append(f"AbuseIPDB Malicious ({ip})")
-                
-            if intel.get("high_pulse_rate"):
-                score += 20
-                hits.append(f"OTX High Pulse Rate ({ip})")
-                
+            vt_score = intel.get("vt_malicious_count", 0) or 0
+            if vt_score >= 5: 
+                score += 80
+                hits.append(f"VT ({vt_score} engines) on {ip}")
+            if intel.get("is_malicious_ip"): 
+                score += 50
+                hits.append(f"AbuseIPDB (Malicious) on {ip}")
+            if intel.get("high_pulse_rate"): 
+                score += 50
+                hits.append(f"OTX (High Pulse) on {ip}")
+
         # 5c. Domain Intelligence
         for d in sess["dns"]:
             query = d.get("query")
             if not query: continue
             intel = intel_by_domain.get(query, {})
-            if intel.get("vt_malicious_count", 0) >= 5 or intel.get("high_pulse_rate"):
-                score += 20
-                hits.append(f"Suspicious DNS ({query})")
+            vt_score = intel.get("vt_malicious_count", 0) or 0
+            if vt_score >= 5:
+                score += 80
+                hits.append(f"VT ({vt_score} engines) on {query}")
+            if intel.get("high_pulse_rate"):
+                score += 50
+                hits.append(f"OTX (High Pulse) on {query}")
                 
         for h in sess["http"]:
             host = h.get("host")
             if not host: continue
             intel = intel_by_domain.get(host, {})
-            if intel.get("vt_malicious_count", 0) >= 5 or intel.get("high_pulse_rate"):
-                score += 20
-                hits.append(f"Suspicious HTTP Host ({host})")
+            vt_score = intel.get("vt_malicious_count", 0) or 0
+            if vt_score >= 5:
+                score += 80
+                hits.append(f"VT ({vt_score} engines) on {host}")
+            if intel.get("high_pulse_rate"):
+                score += 50
+                hits.append(f"OTX (High Pulse) on {host}")
                 
         # 5d. YARA Intelligence
         for fhash in sess["files"]:
@@ -209,13 +272,19 @@ def build_attack_chains(
     # Calculate pie chart distributions for the frontend
     protocol_distribution = {}
     service_distribution = {}
+    src_port_distribution = {}
     
     for s in high_sev + med_sev:
         proto = s.get("proto") or "unknown"
         service = s.get("service") or "unknown"
+        port = s.get("orig_p")
         
         protocol_distribution[proto] = protocol_distribution.get(proto, 0) + 1
         service_distribution[service] = service_distribution.get(service, 0) + 1
+        
+        if port:
+            port_str = f"Port {port}"
+            src_port_distribution[port_str] = src_port_distribution.get(port_str, 0) + 1
     
     out_file = phase2_dir / "incidents_correlated.json"
     
@@ -226,7 +295,8 @@ def build_attack_chains(
             "total_high": len(high_sev),
             "total_medium": len(med_sev),
             "protocol_distribution": protocol_distribution,
-            "service_distribution": service_distribution
+            "service_distribution": service_distribution,
+            "src_port_distribution": src_port_distribution
         }, f, indent=2)
         
     print(f"\n============================================================")
@@ -237,15 +307,19 @@ def build_attack_chains(
     print(f" Extracted {len(med_sev)} MEDIUM severity incidents.")
     print(f" Output saved to: {out_file}\n")
     
-    if high_sev:
-        print(" [ATTACK CHAINS (HIGH SEVERITY)]")
-        for i, s in enumerate(high_sev[:5], 1):
+    top_incidents = sorted(high_sev + med_sev, key=lambda x: x['score'], reverse=True)[:5]
+    if top_incidents:
+        print(" [ATTACK CHAINS (TOP DETECTIONS)]")
+        for i, s in enumerate(top_incidents, 1):
             domain_str = s["http"][0].get("host") if s["http"] else (s["dns"][0].get("query") if s["dns"] else "Unknown Domain")
             file_str = s["files"][0][:8] if s["files"] else "No File"
             
+            orig_host_str = f" ({s['orig_hostname']})" if s.get('orig_hostname') else ""
+            resp_host_str = f" ({s['resp_hostname']})" if s.get('resp_hostname') else ""
+            
             print(f"\n 💥 INCIDENT {i} (Score: {s['score']})")
-            print(f" ├── Source IP: {s['orig_h']}:{s['orig_p']}")
-            print(f" ├── Dest IP:   {s['resp_h']}:{s['resp_p']}")
+            print(f" ├── Source IP: {s['orig_h']}{orig_host_str}:{s['orig_p']}")
+            print(f" ├── Dest IP:   {s['resp_h']}{resp_host_str}:{s['resp_p']}")
             print(f" ├── Service:   {s['service'] or s['proto']}")
             print(f" ├── Domain:    {domain_str}")
             print(f" ├── Session:   {s['uid']}")

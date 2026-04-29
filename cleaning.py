@@ -42,6 +42,12 @@ def _is_private_ip(addr: str) -> bool:
     return any(ip_obj in net for net in _PRIVATE_NETS)
 
 
+def _is_noise_ip(addr: str) -> bool:
+    """True if IP is unroutable noise like 0.0.0.0 or 255.255.255.255"""
+    addr = addr.strip()
+    return addr in {"0.0.0.0", "255.255.255.255"}
+
+
 def _dedup_key(ioc: Dict[str, Any]) -> str:
     """
     Build a stable 64-char hex key that uniquely identifies the *content*
@@ -103,12 +109,20 @@ def clean_and_deduplicate(raw_iocs: List[Dict]) -> Tuple[List[Dict], Dict[str, i
             dropped_empty += 1
             continue
 
-        # Pass 2 — drop private IPs
+        # Pass 2 — drop noise IPs and contextually filter private IPs
         ip = ioc.get("ip", "") or ""
-        if ip and _is_private_ip(ip):
-            dropped_private += 1
-            log.debug("Private IP dropped: %s", ip)
-            continue
+        if ip:
+            if _is_noise_ip(ip):
+                dropped_private += 1
+                continue
+                
+            is_private = _is_private_ip(ip)
+            ioc["is_private"] = is_private
+            
+            if is_private and ioc.get("source_type") == "threat_intel":
+                dropped_private += 1
+                log.debug("Threat Intel private IP dropped: %s", ip)
+                continue
 
         # Pass 3 — deduplicate
         key = _dedup_key(ioc)

@@ -10,5 +10,11 @@ redis>=5.0.0
 # YARA bindings (file scanning)
 yara-python>=4.5.0
 
+# Backend API (Phase 4)
+fastapi>=0.100.0
+uvicorn>=0.23.0
+python-multipart>=0.0.6
+sse-starlette>=1.6.1
+
 # Standard-library modules used (no install needed):
 #   asyncio, hashlib, ipaddress, json, logging, pathlib, time, typing

@@ -108,6 +108,10 @@ PRIVATE_IP_RANGES = [
     "fe80::/10",
 ]
 
+# ── Volumetric Analysis Thresholds ────────────────────────────────────────────
+VOLUMETRIC_THRESHOLD_DOS = int(os.environ.get("VOLUMETRIC_THRESHOLD_DOS", 5000))
+VOLUMETRIC_THRESHOLD_PORT_SCAN = int(os.environ.get("VOLUMETRIC_THRESHOLD_PORT_SCAN", 2000))
+
 # ── Logging ───────────────────────────────────────────────────────────────────
 LOG_LEVEL  = os.environ.get("LOG_LEVEL", "INFO")
 LOG_FORMAT = "%(asctime)s | %(levelname)-8s | %(name)-20s | %(message)s"
