@@ -137,18 +137,55 @@ def _build_hash_to_path(extracted_dir: Path) -> Dict[str, Path]:
 # Per-file scanner
 # ──────────────────────────────────────────────────────────────────────────────
 
-def _scan_file(rules: object, path: Path) -> Optional[str]:
+def _cluster_and_score(rule_names: List[str]) -> Dict:
+    clusters = set()
+    score = 0
+    
+    for rule in rule_names:
+        rule_lower = rule.lower()
+        if "ransomware" in rule_lower or "mass_file_encryption" in rule_lower or "shadow_delete" in rule_lower:
+            clusters.add("Ransomware/Destructive")
+            score = max(score, 100)
+        elif "c2" in rule_lower or "beacon" in rule_lower or "tunneling" in rule_lower or "backdoor" in rule_lower:
+            clusters.add("C2/Backdoor")
+            score = max(score, 90)
+        elif "lateral" in rule_lower or "wmi" in rule_lower or "smb" in rule_lower:
+            clusters.add("Lateral Movement")
+            score = max(score, 85)
+        elif "fileless" in rule_lower or "injection" in rule_lower or "amsi" in rule_lower or "inmemory" in rule_lower:
+            clusters.add("Fileless/Injection")
+            score = max(score, 80)
+        elif "web_shell" in rule_lower or "sql_injection" in rule_lower or "xss" in rule_lower or "exploit" in rule_lower or "command_injection" in rule_lower:
+            clusters.add("Web Attack/Exploit")
+            score = max(score, 70)
+        elif "downloader" in rule_lower or "dropper" in rule_lower or "curl" in rule_lower or "wget" in rule_lower or "certutil" in rule_lower:
+            clusters.add("Downloader/Dropper")
+            score = max(score, 60)
+        elif "obfuscated" in rule_lower or "high_entropy" in rule_lower or "highentropy" in rule_lower or "evasion" in rule_lower or "bypass" in rule_lower:
+            clusters.add("Obfuscation/Evasion")
+            score = max(score, 50)
+        else:
+            clusters.add("Suspicious/Generic")
+            score = max(score, 20)
+            
+    return {
+        "raw_rules": rule_names,
+        "clusters": list(clusters),
+        "score": score
+    }
+
+def _scan_file(rules: object, path: Path) -> Optional[List[str]]:
     """
     Scan a single file with the compiled ruleset.
 
     Returns
     -------
-    Comma-separated rule names if matches found, else None.
+    List of rule names if matches found, else None.
     """
     try:
         matches = rules.match(str(path))  # type: ignore[union-attr]
         if matches:
-            return ",".join(m.rule for m in matches)
+            return [m.rule for m in matches]
     except Exception as exc:  # yara.Error can wrap many things
         log.warning("YARA scan error on %s: %s", path.name, exc)
     return None
@@ -198,8 +235,8 @@ def run_yara_scan(
 
     hash_to_path = _build_hash_to_path(extracted_dir)
 
-    # Per-hash scan cache  →  hash: match_string | None
-    scan_cache: Dict[str, Optional[str]] = {}
+    # Per-hash scan cache  →  hash: match_list | None
+    scan_cache: Dict[str, Optional[List[str]]] = {}
 
     for ioc in iocs:
         fhash = ioc.get("file_hash")
@@ -217,12 +254,15 @@ def run_yara_scan(
                 scan_cache[fhash] = result
                 stats["scanned_files"] += 1
                 if result:
-                    log.info("YARA HIT  %s → %s", fhash[:16], result)
+                    log.info("YARA HIT  %s → %s", fhash[:16], ",".join(result))
                     stats["yara_hits"] += 1
 
-        match = scan_cache[fhash]
-        if match:
-            ioc["yara_match"] = match
+        matches = scan_cache[fhash]
+        if matches:
+            cluster_data = _cluster_and_score(matches)
+            ioc["yara_match"] = ",".join(matches)
+            ioc["yara_clusters"] = cluster_data["clusters"]
+            ioc["yara_score"] = cluster_data["score"]
 
     log.info(
         "YARA complete: scanned=%d  hits=%d  no_file=%d",

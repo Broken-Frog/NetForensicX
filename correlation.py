@@ -12,6 +12,7 @@ import argparse
 import json
 from pathlib import Path
 from typing import Any, Dict, List, Set, Optional
+import ipaddress
 from config import VOLUMETRIC_THRESHOLD_DOS, VOLUMETRIC_THRESHOLD_PORT_SCAN
 
 def _load_json_lines(path: Path) -> List[Dict]:
@@ -250,7 +251,13 @@ def build_attack_chains(
         # 5d. YARA Intelligence
         for fhash in sess["files"]:
             intel = intel_by_hash.get(fhash, {})
-            if intel.get("yara_match"):
+            yara_score = intel.get("yara_score", 0)
+            if yara_score > 0:
+                score += yara_score
+                clusters = intel.get("yara_clusters", [])
+                cluster_str = "/".join(clusters) if clusters else "Unknown"
+                hits.append(f"YARA Cluster [{cluster_str}] ({yara_score} pts on {fhash[:8]})")
+            elif intel.get("yara_match"):
                 score += 40
                 hits.append(f"YARA Match ({intel.get('yara_match')} on {fhash[:8]})")
             if intel.get("vt_malicious_count", 0) >= 5:
@@ -264,6 +271,81 @@ def build_attack_chains(
             sess["severity"] = "HIGH"
         elif score >= 40:
             sess["severity"] = "MEDIUM"
+
+    # 5.5. Host-Centric Profiling
+    host_profiles = {}
+    
+    def is_internal(ip_str):
+        if not ip_str:
+            return False
+        try:
+            ip = ipaddress.ip_address(ip_str)
+            return ip.is_private or ip.is_loopback
+        except ValueError:
+            return False
+
+    for uid, sess in sessions.items():
+        if sess["score"] == 0:
+            continue
+            
+        orig_ip = sess.get("orig_h")
+        resp_ip = sess.get("resp_h")
+        
+        internal_ips = []
+        external_ips = []
+        
+        if orig_ip and is_internal(orig_ip):
+            internal_ips.append((orig_ip, sess.get("orig_hostname")))
+        elif orig_ip:
+            external_ips.append(orig_ip)
+            
+        if resp_ip and is_internal(resp_ip):
+            internal_ips.append((resp_ip, sess.get("resp_hostname")))
+        elif resp_ip:
+            external_ips.append(resp_ip)
+            
+        for ip, hostname in internal_ips:
+            if ip not in host_profiles:
+                host_profiles[ip] = {
+                    "ip": ip,
+                    "hostname": hostname,
+                    "infection_score": 0,
+                    "intel_hits": set(),
+                    "suricata_alerts": set(),
+                    "files": set(),
+                    "contacted_domains": set(),
+                    "contacted_ips": set()
+                }
+            
+            profile = host_profiles[ip]
+            profile["infection_score"] += sess["score"]
+            profile["intel_hits"].update(sess.get("intel_hits", []))
+            
+            for alert in sess.get("suricata_alerts", []):
+                profile["suricata_alerts"].add(alert.get("signature"))
+                
+            profile["files"].update(sess.get("files", []))
+            
+            for d in sess.get("dns", []):
+                if d.get("query"):
+                    profile["contacted_domains"].add(d["query"])
+            for h in sess.get("http", []):
+                if h.get("host"):
+                    profile["contacted_domains"].add(h["host"])
+                    
+            profile["contacted_ips"].update(external_ips)
+
+    # Convert sets to lists for JSON serialization
+    for ip, profile in host_profiles.items():
+        profile["intel_hits"] = list(profile["intel_hits"])
+        profile["suricata_alerts"] = list(profile["suricata_alerts"])
+        profile["files"] = list(profile["files"])
+        profile["contacted_domains"] = list(profile["contacted_domains"])
+        profile["contacted_ips"] = list(profile["contacted_ips"])
+
+    out_host_file = phase2_dir / "host_profiles.json"
+    with open(out_host_file, "w", encoding="utf-8") as f:
+        json.dump(host_profiles, f, indent=2)
 
     # 6. Output Generation
     high_sev = [s for s in sessions.values() if s["severity"] == "HIGH"]
@@ -299,14 +381,87 @@ def build_attack_chains(
             "src_port_distribution": src_port_distribution
         }, f, indent=2)
         
+    # 7. Timeline Generation
+    timeline_events = []
+    story_sessions = [s for s in sessions.values() if s["score"] > 0]
+    
+    for s in story_sessions:
+        ts = s.get("ts")
+        if not ts: continue
+        
+        action = "Suspicious Network Activity"
+        hit_str = " ".join(s.get("intel_hits", []))
+        
+        if "Ransomware" in hit_str:
+            action = "Ransomware Activity"
+        elif "C2" in hit_str or "Backdoor" in hit_str:
+            action = "C2 Communication"
+        elif "Fileless" in hit_str or "Injection" in hit_str or "Lateral Movement" in hit_str:
+            action = "Lateral Movement / Injection"
+        elif "Web Attack" in hit_str or "Exploit" in hit_str:
+            action = "Exploitation Attempt"
+        elif "Downloader" in hit_str or s.get("files"):
+            action = "Malicious Payload Transfer"
+        elif s.get("suricata_alerts"):
+            action = f"IDS Alert: {s['suricata_alerts'][0]['signature']}"
+        elif "Volumetric" in hit_str:
+            action = "Volumetric Anomaly"
+            
+        domain_str = s["http"][0].get("host") if s["http"] else (s["dns"][0].get("query") if s["dns"] else "Unknown Domain")
+        
+        timeline_events.append({
+            "timestamp": ts,
+            "action": action,
+            "source": f"{s['orig_h']}:{s['orig_p']}",
+            "destination": f"{s['resp_h']}:{s['resp_p']}",
+            "domain": domain_str,
+            "protocol": s.get("service") or s.get("proto"),
+            "score": s["score"],
+            "session_id": s["uid"],
+            "details": s.get("intel_hits", [])[:3]
+        })
+        
+    timeline_events.sort(key=lambda x: x["timestamp"])
+    
+    out_timeline_file = phase2_dir / "attack_timeline.json"
+    with open(out_timeline_file, "w", encoding="utf-8") as f:
+        json.dump(timeline_events, f, indent=2)
+
     print(f"\n============================================================")
     print(f" [Phase 3] CORRELATION COMPLETE")
     print(f"============================================================")
     print(f" Analyzed {len(sessions)} unique Zeek sessions.")
+    print(f" Profiled {len(host_profiles)} internal hosts.")
     print(f" Extracted {len(high_sev)} HIGH severity incidents.")
     print(f" Extracted {len(med_sev)} MEDIUM severity incidents.")
-    print(f" Output saved to: {out_file}\n")
+    print(f" Output saved to: {out_file}")
+    print(f" Host profiles saved to: {out_host_file}")
+    print(f" Attack timeline saved to: {out_timeline_file}\n")
     
+    if timeline_events:
+        print(" [ATTACK TIMELINE]")
+        for evt in timeline_events[:10]:
+            print(f" ⏳ T+{evt['timestamp']:.2f}s | {evt['action']:<30} | {evt['source']} -> {evt['destination']} (Score: {evt['score']})")
+        if len(timeline_events) > 10:
+            print(f"   ... and {len(timeline_events) - 10} more events in attack_timeline.json")
+        print("\n" + "="*60)
+    
+    top_hosts = sorted(host_profiles.values(), key=lambda x: x["infection_score"], reverse=True)[:5]
+    if top_hosts:
+        print(" [HOST-CENTRIC VIEW (TOP INFECTED HOSTS)]")
+        for i, h in enumerate(top_hosts, 1):
+            hostname_str = f" ({h['hostname']})" if h.get('hostname') else ""
+            print(f"\n 💻 HOST {i}: {h['ip']}{hostname_str} (Score: {h['infection_score']})")
+            if h["intel_hits"]:
+                print(f"   - Intel Hits: {len(h['intel_hits'])}")
+            if h["suricata_alerts"]:
+                print(f"   - Alerts: {len(h['suricata_alerts'])}")
+            if h["files"]:
+                print(f"   - Extracted Files: {len(h['files'])}")
+            if h["contacted_domains"]:
+                print(f"   - External Domains: {len(h['contacted_domains'])}")
+        print("\n" + "="*60)
+        
     top_incidents = sorted(high_sev + med_sev, key=lambda x: x['score'], reverse=True)[:5]
     if top_incidents:
         print(" [ATTACK CHAINS (TOP DETECTIONS)]")
