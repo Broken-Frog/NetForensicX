@@ -1,6 +1,6 @@
-# V1_Recon: System Architecture
+# NetForensicX: System Architecture
 
-V1_Recon is a modular, high-performance pipeline designed to ingest raw network traffic (PCAP), extract Indicators of Compromise (IOCs), and enrich them via external Threat Intelligence platforms. 
+NetForensicX is a modular, high-performance pipeline designed to ingest raw network traffic (PCAP), extract Indicators of Compromise (IOCs), and enrich them via external Threat Intelligence platforms. 
 
 The architecture is split into two primary phases: **Extraction (Phase 1)** and **Processing & Enrichment (Phase 2)**.
 

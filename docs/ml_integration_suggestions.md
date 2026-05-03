@@ -1,4 +1,4 @@
-# Machine Learning Integration Opportunities for V1_Recon
+# Machine Learning Integration Opportunities for NetForensicX
 
 Based on a review of your project's folder structure (`main.py`, `extraction.py`, `cleaning.py`, `yara_scan.py`, `enrichment_async.py`), your pipeline is an excellent foundation for automated network traffic and PCAP analysis. Currently, it heavily relies on signature-based detection (YARA, Suricata rules) and third-party threat intelligence (VirusTotal).
 

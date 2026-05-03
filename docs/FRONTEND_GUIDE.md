@@ -1,6 +1,6 @@
 # Phase 4: Frontend Visualization Specification
 
-This document outlines the required UI components, data structures, and recommended charts for building a SOC-grade incident dashboard based on the output of the V1_Recon pipeline.
+This document outlines the required UI components, data structures, and recommended charts for building a SOC-grade incident dashboard based on the output of the NetForensicX pipeline.
 
 The frontend should consume a single file: `incidents_correlated.json`. All metrics and distributions are pre-calculated by the backend.
 

@@ -1,6 +1,7 @@
-# V1_Recon: Threat Intelligence & IOC Extraction Pipeline
+# NetForensicX: Threat Intelligence & IOC Extraction Pipeline
 
-V1_Recon is an automated Post-Analysis Ingestion Framework designed to process network packet captures (PCAPs), extract Indicators of Compromise (IOCs), and enrich them using multiple Threat Intelligence APIs. 
+## Project Overview
+NetForensicX is an automated Post-Analysis Ingestion Framework designed to process network packet captures (PCAPs), extract Indicators of Compromise (IOCs), and enrich them using multiple Threat Intelligence APIs. It provides a comprehensive forensic platform by implementing host-centric profiling, attack timeline reconstruction, and dynamic severity-based scoring to reduce alert noise.
 
 The pipeline runs sequentially in three main phases:
 1. **Phase 1 (`packet_factory.py`)**: Uses Zeek and Suricata to process the raw PCAP file, generating connection logs, DNS/HTTP metadata, security alerts, and carving raw file payloads.
@@ -8,6 +9,59 @@ The pipeline runs sequentially in three main phases:
 3. **Phase 3 (`correlation.py`)**: Correlates the enriched IOCs back to network sessions, implements Host-Centric Profiling, clusters YARA hits with a weighted scoring system, and generates a chronological Attack Timeline.
 
 The entire workflow is managed by a single orchestrator script: `main.py`.
+
+##  Tech Stack
+- **Network Analysis:** Zeek, Suricata
+- **Malware Detection:** YARA
+- **Threat Intelligence APIs:** VirusTotal, AbuseIPDB, OTX AlienVault
+- **Caching & Async:** Redis, `aiohttp`, `asyncio`
+- **Data Pipeline:** Python 3
+
+##  Architecture
+```mermaid
+graph TD;
+    A[Raw PCAP] -->|Phase 1| B[packet_factory.py]
+    B -->|Zeek + Suricata| C[Data Lake: Logs & Extracted Payloads]
+    C -->|Phase 2| D[ioc_extractor.py]
+    D -->|YARA Scanning| E[Payload Threat Scores]
+    D -->|Async API Enrichment| F[VT, AbuseIPDB, OTX]
+    E & F --> G[Unified Enriched IOCs]
+    G -->|Phase 3| H[correlation.py]
+    H --> I(incidents_correlated.json)
+    H --> J(host_profiles.json)
+    H --> K(attack_timeline.json)
+```
+
+##  Features
+- **Automated PCAP Extraction:** Uses Zeek and Suricata to carve logs and file payloads from raw traffic.
+- **Dynamic IOC Deduplication:** Filters out internal traffic and intelligently deduplicates massive IOC sets.
+- **YARA Scoring Engine:** Clusters raw YARA hits into actionable threat categories (e.g., "C2/Backdoor", "Ransomware") with weighted severity scoring.
+- **Host-Centric Profiling:** Tracks internal IP activity to map out "Patient Zero" and overall infection severity per host.
+- **Attack Timeline Generator:** Reconstructs the entire narrative of the attack from Initial Access down to Impact chronologically.
+- **High-Performance API Enrichment:** Asynchronous, rate-limited queries to external Threat Intel platforms backed by a Redis cache.
+
+##  Use Cases
+- **Security Operations Center (SOC):** Automates initial triage and reduces alert fatigue by clustering noisy alerts into high-fidelity incidents.
+- **Digital Forensics & Incident Response (DFIR):** Rapidly reconstructs attack timelines and traces lateral movement across compromised endpoints.
+- **Threat Hunting:** Provides a rich, unified dataset of all extracted file hashes, contacted domains, and IP addresses mapped to intelligence scores.
+
+##  Sample Output
+Example event from the generated `attack_timeline.json`:
+```json
+[
+  {
+    "timestamp": 11.091171,
+    "action": "Malicious Payload Transfer", 
+    "source": "192.168.1.4:49188",
+    "destination": "192.168.1.5:445",
+    "domain": "Unknown Domain",
+    "protocol": "smb",
+    "score": 90,
+    "session_id": "C13ryZ16G7DsaAR3x5",
+    "details": ["YARA Cluster [Ransomware/Destructive] (100 pts on 93df9b96)"]
+  }
+]
+```
 
 ---
 
@@ -30,7 +84,7 @@ The entire workflow is managed by a single orchestrator script: `main.py`.
 
 ---
 
-##  Prerequisites & Installation
+## Prerequisites & Installation
 
 ### 1. System Requirements (Linux/Debian/Ubuntu)
 The Phase 1 orchestrator (`packet_factory.py`) relies heavily on native security binaries to process PCAP files. Run the following to install the core system dependencies:
@@ -77,7 +131,7 @@ export OTX_API_KEY="your_otx_alienvault_api_key"
 
 ---
 
-##  Execution Guide
+## Execution Guide
 
 ### End-to-End Execution (Recommended)
 To run the entire pipeline from start to finish on a PCAP file, simply use `main.py`.
@@ -110,7 +164,7 @@ python3 correlation.py processed/capture/ phase2_output/capture_20260428_123000/
 
 ---
 
-##  Output Artifacts
+## Output Artifacts
 
 After a successful run, navigate to your timestamped output directory (e.g., `phase2_output/Hive_20260428_143000/`). You will find:
 
