@@ -1,0 +1,234 @@
+🧾 ATTACK STORY (AUTO-GENERATED)
+==================================================
+
+🎯 PATIENT ZERO: 192.168.122.52 (Jennifer-PC)
+--------------------------------------------------
+[STAGE 1] Initial Access
+Host 192.168.122.52 likely compromised via attack.
+Indicators:
+- YARA Cluster [Web Attack/Exploit/Suspicious/Generic/Ransomware/Destructive/C2/Backdoor] (100 pts on 356f9113)
+- YARA Cluster [Web Attack/Exploit] (70 pts on ef89538c)
+- YARA Cluster [C2/Backdoor/Web Attack/Exploit] (90 pts on 06a0e814)
+
+        ↓
+
+[STAGE 2] Payload Execution
+Malicious payload executed on host.
+Hash: b09d23ba...
+Indicators:
+- YARA Cluster [C2/Backdoor] (90 pts on 4ab9915b)
+- YARA Cluster [C2/Backdoor] (90 pts on f9188bfb)
+- VT (5 engines) on 192.185.21.183
+
+        ↓
+
+[STAGE 5] Beaconing / Persistence
+Repeated outbound connections observed:
+192.168.122.52 → 119.160.254.197:80 (Beaconing Score: 130)
+192.168.122.52 → 119.160.243.163:80 (Beaconing Score: 90)
+192.168.122.52 → 103.2.116.79:80 (Beaconing Score: 130)
+
+🎯 PATIENT ZERO: 192.168.122.132 (Hokaydoo-PC)
+--------------------------------------------------
+[STAGE 1] Initial Access
+Host 192.168.122.132 likely compromised via attack.
+Indicators:
+- YARA Cluster [C2/Backdoor/Web Attack/Exploit] (90 pts on ee48daa8)
+- YARA Cluster [C2/Backdoor/Web Attack/Exploit] (90 pts on e05ddeda)
+
+        ↓
+
+[STAGE 2] Payload Execution
+Malicious payload executed on host.
+Hash: bb240207...
+Indicators:
+- OTX (High Pulse) on 104.244.43.167
+- YARA Cluster [C2/Backdoor/Obfuscation/Evasion/Fileless/Injection/Downloader/Dropper] (90 pts on 66713acd)
+- YARA Cluster [C2/Backdoor/Ransomware/Destructive] (100 pts on b399e063)
+
+        ↓
+
+[STAGE 5] Beaconing / Persistence
+Repeated outbound connections observed:
+192.168.122.132 → 8.8.4.4:53 (Beaconing Score: 110)
+192.168.122.132 → 95.128.181.144:80 (Beaconing Score: 130)
+192.168.122.132 → 92.51.131.150:80 (Beaconing Score: 110)
+
+🎯 PATIENT ZERO: 192.168.122.130 (FULL-METAL-JACK)
+--------------------------------------------------
+[STAGE 2] Payload Execution
+Malicious payload executed on host.
+Hash: 306ab541...
+Indicators:
+- YARA Cluster [Fileless/Injection] (80 pts on d57f24e4)
+- YARA Cluster [C2/Backdoor/Obfuscation/Evasion/Suspicious/Generic/Downloader/Dropper] (90 pts on 95a9c8fc)
+- YARA Cluster [Suspicious/Generic] (20 pts on 306ab541)
+
+        ↓
+
+[STAGE 5] Beaconing / Persistence
+Repeated outbound connections observed:
+192.168.122.130 → 184.168.173.1:80 (Beaconing Score: 90)
+
+============================================================
+ 🕒 GLOBAL ATTACK TIMELINE
+============================================================
+T+1452204392.30s | Suspicious Network Activity    | 192.168.122.132:60126 -> 8.8.4.4:53 (Score: 50)
+T+1452204394.82s | Suspicious Network Activity    | 192.168.122.130:49158 -> 204.79.197.200:443 (Score: 50)
+T+1452204394.82s | Suspicious Network Activity    | 192.168.122.130:49159 -> 204.79.197.200:443 (Score: 50)
+T+1452204394.82s | Suspicious Network Activity    | 192.168.122.130:49160 -> 204.79.197.200:443 (Score: 50)
+T+1452204394.82s | Suspicious Network Activity    | 192.168.122.130:49161 -> 204.79.197.200:443 (Score: 50)
+T+1452204394.82s | Suspicious Network Activity    | 192.168.122.130:49162 -> 204.79.197.200:443 (Score: 50)
+T+1452204404.33s | Suspicious Network Activity    | 192.168.122.130:49165 -> 204.79.197.200:443 (Score: 50)
+T+1452204405.28s | Suspicious Network Activity    | 192.168.122.130:49166 -> 204.79.197.200:443 (Score: 50)
+T+1452204405.28s | Suspicious Network Activity    | 192.168.122.130:49167 -> 204.79.197.200:443 (Score: 50)
+T+1452204417.37s | Suspicious Network Activity    | 192.168.122.132:63860 -> 8.8.4.4:53 (Score: 50)
+T+1452204418.20s | Suspicious Network Activity    | 192.168.122.130:49168 -> 204.79.197.200:443 (Score: 50)
+T+1452204418.75s | Suspicious Network Activity    | 192.168.122.130:49169 -> 204.79.197.200:443 (Score: 50)
+T+1452204418.75s | Suspicious Network Activity    | 192.168.122.130:49170 -> 204.79.197.200:443 (Score: 50)
+T+1452204419.11s | Lateral Movement / Injection   | 192.168.122.130:49177 -> 202.43.194.205:80 (Score: 80)
+T+1452204529.23s | Ransomware Activity            | 192.168.122.52:49170 -> 119.160.243.163:80 (Score: 100)
+T+1452204532.08s | Ransomware Activity            | 192.168.122.52:49172 -> 119.160.254.197:80 (Score: 280)
+T+1452204532.08s | C2 Communication               | 192.168.122.52:49173 -> 119.160.254.197:80 (Score: 270)
+T+1452204532.08s | Ransomware Activity            | 192.168.122.52:49174 -> 119.160.254.197:80 (Score: 290)
+T+1452204536.23s | Ransomware Activity            | 192.168.122.52:49178 -> 103.2.116.83:80 (Score: 100)
+T+1452204541.06s | C2 Communication               | 192.168.122.52:49180 -> 119.160.254.197:80 (Score: 180)
+T+1452204541.06s | Ransomware Activity            | 192.168.122.52:49181 -> 119.160.254.197:80 (Score: 280)
+T+1452204541.07s | Ransomware Activity            | 192.168.122.52:49182 -> 119.160.254.197:80 (Score: 190)
+T+1452204543.77s | C2 Communication               | 192.168.122.52:49183 -> 119.160.243.163:80 (Score: 90)
+T+1452204548.75s | C2 Communication               | 192.168.122.52:49188 -> 67.225.139.108:80 (Score: 90)
+T+1452204548.77s | C2 Communication               | 192.168.122.52:49189 -> 67.225.139.108:80 (Score: 90)
+T+1452204553.69s | Ransomware Activity            | 192.168.122.52:49192 -> 216.58.220.106:80 (Score: 190)
+T+1452204553.69s | C2 Communication               | 192.168.122.52:49193 -> 216.58.220.106:80 (Score: 90)
+T+1452204554.81s | C2 Communication               | 192.168.122.52:49194 -> 67.225.139.108:80 (Score: 90)
+T+1452204554.81s | C2 Communication               | 192.168.122.52:49195 -> 67.225.139.108:80 (Score: 90)
+T+1452204556.81s | C2 Communication               | 192.168.122.52:49196 -> 67.225.139.108:80 (Score: 90)
+T+1452204556.82s | C2 Communication               | 192.168.122.52:49197 -> 67.225.139.108:80 (Score: 90)
+T+1452204559.38s | Ransomware Activity            | 192.168.122.52:49198 -> 67.225.139.108:80 (Score: 130)
+T+1452204559.38s | C2 Communication               | 192.168.122.52:49199 -> 67.225.139.108:80 (Score: 90)
+T+1452204564.33s | Malicious Payload Transfer     | 192.168.122.52:49200 -> 192.185.21.183:80 (Score: 160)
+T+1452204564.33s | Suspicious Network Activity    | 192.168.122.52:49201 -> 192.185.21.183:80 (Score: 160)
+T+1452204569.24s | Ransomware Activity            | 192.168.122.52:49204 -> 68.232.45.200:80 (Score: 100)
+T+1452204571.77s | Ransomware Activity            | 192.168.122.52:49206 -> 67.225.139.108:80 (Score: 100)
+T+1452204574.41s | Ransomware Activity            | 192.168.122.52:49208 -> 67.225.139.108:80 (Score: 100)
+T+1452204574.41s | C2 Communication               | 192.168.122.52:49210 -> 67.225.139.108:80 (Score: 90)
+T+1452204577.01s | C2 Communication               | 192.168.122.52:49211 -> 67.225.139.108:80 (Score: 90)
+T+1452204578.80s | Ransomware Activity            | 192.168.122.52:49212 -> 67.225.139.108:80 (Score: 100)
+T+1452204578.80s | C2 Communication               | 192.168.122.52:49213 -> 67.225.139.108:80 (Score: 90)
+T+1452204579.96s | Ransomware Activity            | 192.168.122.52:49214 -> 67.225.139.108:80 (Score: 100)
+T+1452204581.99s | C2 Communication               | 192.168.122.52:49215 -> 67.225.139.108:80 (Score: 90)
+T+1452204584.72s | Ransomware Activity            | 192.168.122.52:49218 -> 67.225.139.108:80 (Score: 100)
+T+1452204587.71s | C2 Communication               | 192.168.122.52:49220 -> 67.225.139.108:80 (Score: 90)
+T+1452204589.57s | C2 Communication               | 192.168.122.52:49221 -> 67.225.139.108:80 (Score: 90)
+T+1452204589.57s | C2 Communication               | 192.168.122.52:49222 -> 67.225.139.108:80 (Score: 90)
+T+1452204589.57s | C2 Communication               | 192.168.122.52:49223 -> 67.225.139.108:80 (Score: 90)
+T+1452204589.57s | C2 Communication               | 192.168.122.52:49224 -> 67.225.139.108:80 (Score: 90)
+T+1452204589.57s | C2 Communication               | 192.168.122.52:49225 -> 67.225.139.108:80 (Score: 90)
+T+1452204590.14s | Ransomware Activity            | 192.168.122.52:49226 -> 103.2.116.117:80 (Score: 100)
+T+1452204591.32s | C2 Communication               | 192.168.122.52:49230 -> 67.225.139.108:80 (Score: 90)
+T+1452204591.54s | C2 Communication               | 192.168.122.52:49231 -> 67.225.139.108:80 (Score: 90)
+T+1452204591.99s | C2 Communication               | 192.168.122.52:49232 -> 67.225.139.108:80 (Score: 90)
+T+1452204592.85s | C2 Communication               | 192.168.122.52:49233 -> 67.225.139.108:80 (Score: 90)
+T+1452204594.37s | C2 Communication               | 192.168.122.52:49241 -> 67.225.139.108:80 (Score: 90)
+T+1452204594.83s | C2 Communication               | 192.168.122.52:49242 -> 67.225.139.108:80 (Score: 90)
+T+1452204595.70s | C2 Communication               | 192.168.122.52:49243 -> 67.225.139.108:80 (Score: 90)
+T+1452204595.92s | C2 Communication               | 192.168.122.52:49244 -> 67.225.139.108:80 (Score: 90)
+T+1452204596.13s | C2 Communication               | 192.168.122.52:49245 -> 67.225.139.108:80 (Score: 90)
+T+1452204596.13s | C2 Communication               | 192.168.122.52:49246 -> 67.225.139.108:80 (Score: 90)
+T+1452204597.55s | C2 Communication               | 192.168.122.52:49249 -> 67.225.139.108:80 (Score: 90)
+T+1452204597.77s | Ransomware Activity            | 192.168.122.52:49250 -> 67.225.139.108:80 (Score: 100)
+T+1452204598.25s | Malicious Payload Transfer     | 192.168.122.52:49253 -> 67.225.139.108:80 (Score: 60)
+T+1452204598.71s | C2 Communication               | 192.168.122.52:49254 -> 67.225.139.108:80 (Score: 90)
+T+1452204599.12s | C2 Communication               | 192.168.122.52:49257 -> 67.225.139.108:80 (Score: 90)
+T+1452204599.44s | C2 Communication               | 192.168.122.52:49259 -> 67.225.139.108:80 (Score: 90)
+T+1452204599.89s | C2 Communication               | 192.168.122.52:49260 -> 67.225.139.108:80 (Score: 90)
+T+1452204600.08s | Malicious Payload Transfer     | 192.168.122.52:49262 -> 67.225.139.108:80 (Score: 60)
+T+1452204600.33s | C2 Communication               | 192.168.122.52:49263 -> 67.225.139.108:80 (Score: 90)
+T+1452204600.45s | C2 Communication               | 192.168.122.52:49264 -> 67.225.139.108:80 (Score: 90)
+T+1452204600.89s | C2 Communication               | 192.168.122.52:49265 -> 67.225.139.108:80 (Score: 90)
+T+1452204601.23s | C2 Communication               | 192.168.122.52:49266 -> 67.225.139.108:80 (Score: 90)
+T+1452204601.33s | C2 Communication               | 192.168.122.52:49267 -> 67.225.139.108:80 (Score: 90)
+T+1452204601.59s | C2 Communication               | 192.168.122.52:49268 -> 67.225.139.108:80 (Score: 90)
+T+1452204602.11s | C2 Communication               | 192.168.122.52:49269 -> 67.225.139.108:80 (Score: 90)
+T+1452204602.32s | C2 Communication               | 192.168.122.52:49270 -> 67.225.139.108:80 (Score: 90)
+T+1452204602.54s | C2 Communication               | 192.168.122.52:49271 -> 67.225.139.108:80 (Score: 90)
+T+1452204603.12s | C2 Communication               | 192.168.122.52:49272 -> 67.225.139.108:80 (Score: 90)
+T+1452204603.12s | C2 Communication               | 192.168.122.52:49273 -> 67.225.139.108:80 (Score: 90)
+T+1452204603.56s | C2 Communication               | 192.168.122.52:49274 -> 67.225.139.108:80 (Score: 90)
+T+1452204603.88s | C2 Communication               | 192.168.122.52:49275 -> 67.225.139.108:80 (Score: 90)
+T+1452204603.99s | C2 Communication               | 192.168.122.52:49276 -> 67.225.139.108:80 (Score: 90)
+T+1452204604.09s | C2 Communication               | 192.168.122.52:49277 -> 67.225.139.108:80 (Score: 90)
+T+1452204604.66s | C2 Communication               | 192.168.122.52:49278 -> 67.225.139.108:80 (Score: 90)
+T+1452204606.56s | Lateral Movement / Injection   | 192.168.122.52:49279 -> 67.225.139.108:80 (Score: 80)
+T+1452204608.13s | C2 Communication               | 192.168.122.132:49181 -> 103.2.116.83:80 (Score: 90)
+T+1452204610.18s | Ransomware Activity            | 192.168.122.132:49182 -> 92.51.131.150:80 (Score: 540)
+T+1452204613.33s | C2 Communication               | 192.168.122.132:49184 -> 92.51.131.150:80 (Score: 450)
+T+1452204613.33s | Ransomware Activity            | 192.168.122.132:49185 -> 92.51.131.150:80 (Score: 560)
+T+1452204613.33s | C2 Communication               | 192.168.122.132:49186 -> 92.51.131.150:80 (Score: 450)
+T+1452204613.33s | Ransomware Activity            | 192.168.122.132:49187 -> 92.51.131.150:80 (Score: 650)
+T+1452204613.36s | Ransomware Activity            | 192.168.122.132:49188 -> 92.51.131.150:80 (Score: 550)
+T+1452204614.34s | Malicious Payload Transfer     | 192.168.122.132:49191 -> 104.244.43.167:80 (Score: 50)
+T+1452204614.34s | Suspicious Network Activity    | 192.168.122.132:49192 -> 104.244.43.167:80 (Score: 50)
+T+1452204614.41s | Suspicious Network Activity    | 192.168.122.132:51710 -> 8.8.4.4:53 (Score: 50)
+T+1452204614.69s | C2 Communication               | 192.168.122.132:49194 -> 92.51.131.150:80 (Score: 410)
+T+1452204614.69s | Ransomware Activity            | 192.168.122.132:49193 -> 92.51.131.150:80 (Score: 370)
+T+1452204615.24s | C2 Communication               | 192.168.122.132:49195 -> 89.38.144.75:80 (Score: 90)
+T+1452204615.25s | C2 Communication               | 192.168.122.132:49196 -> 89.38.144.75:80 (Score: 120)
+T+1452204616.04s | Suspicious Network Activity    | 192.168.122.132:53585 -> 8.8.4.4:53 (Score: 50)
+T+1452204618.83s | Suspicious Network Activity    | 192.168.122.132:58090 -> 8.8.4.4:53 (Score: 50)
+T+1452204618.84s | Suspicious Network Activity    | 192.168.122.132:49653 -> 8.8.4.4:53 (Score: 50)
+T+1452204619.53s | C2 Communication               | 192.168.122.132:49203 -> 92.51.131.150:80 (Score: 180)
+T+1452204620.88s | Suspicious Network Activity    | 192.168.122.132:65165 -> 8.8.4.4:53 (Score: 50)
+T+1452204622.03s | Suspicious Network Activity    | 192.168.122.132:52881 -> 8.8.4.4:53 (Score: 50)
+T+1452204622.57s | Ransomware Activity            | 192.168.122.132:49205 -> 74.125.204.155:80 (Score: 100)
+T+1452204623.86s | Suspicious Network Activity    | 192.168.122.132:57492 -> 8.8.4.4:53 (Score: 50)
+T+1452204624.88s | C2 Communication               | 192.168.122.132:49214 -> 92.51.131.150:80 (Score: 90)
+T+1452204625.03s | C2 Communication               | 192.168.122.132:49215 -> 89.38.144.75:80 (Score: 90)
+T+1452204643.15s | C2 Communication               | 192.168.122.132:49216 -> 92.51.131.150:80 (Score: 90)
+T+1452204645.46s | Suspicious Network Activity    | 192.168.122.132:57540 -> 8.8.4.4:53 (Score: 50)
+T+1452204717.05s | Suspicious Network Activity    | 192.168.122.130:49222 -> 184.168.173.1:80 (Score: 50)
+T+1452204723.16s | C2 Communication               | 192.168.122.130:49223 -> 174.36.186.235:80 (Score: 120)
+T+1452204732.69s | Suspicious Network Activity    | 192.168.122.132:53925 -> 8.8.4.4:53 (Score: 100)
+T+1452204733.70s | Suspicious Network Activity    | 192.168.122.132:53925 -> 8.8.8.8:53 (Score: 50)
+T+1452204733.73s | Malicious Payload Transfer     | 192.168.122.132:49221 -> 50.22.11.55:80 (Score: 50)
+T+1452204741.32s | C2 Communication               | 192.168.122.130:49224 -> 184.168.173.1:80 (Score: 170)
+T+1452204753.66s | Malicious Payload Transfer     | 192.168.122.130:49225 -> 174.36.186.235:80 (Score: 50)
+T+1452204767.04s | C2 Communication               | 192.168.122.130:49226 -> 184.168.173.1:80 (Score: 170)
+T+1452204779.77s | Suspicious Network Activity    | 192.168.122.132:60739 -> 8.8.4.4:53 (Score: 50)
+T+1452204780.00s | Suspicious Network Activity    | 192.168.122.132:51840 -> 8.8.4.4:53 (Score: 50)
+T+1452204877.90s | Ransomware Activity            | 192.168.122.52:49287 -> 119.160.243.163:80 (Score: 100)
+T+1452204889.85s | Ransomware Activity            | 192.168.122.52:49294 -> 119.160.243.163:80 (Score: 100)
+T+1452204917.75s | Ransomware Activity            | 192.168.122.52:49300 -> 119.160.243.163:80 (Score: 100)
+T+1452204920.79s | C2 Communication               | 192.168.122.52:49302 -> 119.160.254.197:80 (Score: 180)
+T+1452204920.79s | C2 Communication               | 192.168.122.52:49303 -> 119.160.254.197:80 (Score: 180)
+T+1452204920.79s | C2 Communication               | 192.168.122.52:49304 -> 119.160.254.197:80 (Score: 90)
+T+1452204920.79s | C2 Communication               | 192.168.122.52:49305 -> 119.160.254.197:80 (Score: 90)
+T+1452204920.79s | C2 Communication               | 192.168.122.52:49306 -> 119.160.254.197:80 (Score: 90)
+T+1452204920.79s | C2 Communication               | 192.168.122.52:49307 -> 119.160.254.197:80 (Score: 90)
+T+1452204928.81s | Ransomware Activity            | 192.168.122.52:49310 -> 54.66.231.10:80 (Score: 410)
+T+1452204928.81s | Ransomware Activity            | 192.168.122.52:49311 -> 54.66.231.10:80 (Score: 660)
+T+1452204936.55s | Ransomware Activity            | 192.168.122.52:49314 -> 54.66.231.10:80 (Score: 460)
+T+1452204936.55s | C2 Communication               | 192.168.122.52:49315 -> 54.66.231.10:80 (Score: 90)
+T+1452204936.56s | C2 Communication               | 192.168.122.52:49316 -> 54.66.231.10:80 (Score: 290)
+T+1452204936.56s | C2 Communication               | 192.168.122.52:49317 -> 54.66.231.10:80 (Score: 180)
+T+1452204937.01s | C2 Communication               | 192.168.122.52:49318 -> 103.2.116.79:80 (Score: 90)
+T+1452204937.01s | C2 Communication               | 192.168.122.52:49319 -> 103.2.116.79:80 (Score: 90)
+T+1452204937.01s | Exploitation Attempt           | 192.168.122.52:49320 -> 184.85.81.17:80 (Score: 70)
+T+1452204937.01s | C2 Communication               | 192.168.122.52:49321 -> 184.85.81.17:80 (Score: 180)
+T+1452204937.01s | C2 Communication               | 192.168.122.52:49322 -> 103.2.116.79:80 (Score: 90)
+T+1452204937.01s | C2 Communication               | 192.168.122.52:49323 -> 103.2.116.79:80 (Score: 90)
+T+1452204937.01s | C2 Communication               | 192.168.122.52:49324 -> 103.2.116.79:80 (Score: 90)
+T+1452204937.01s | C2 Communication               | 192.168.122.52:49325 -> 103.2.116.79:80 (Score: 90)
+T+1452204948.24s | C2 Communication               | 192.168.122.52:49326 -> 173.223.175.15:80 (Score: 180)
+T+1452204948.24s | C2 Communication               | 192.168.122.52:49327 -> 173.223.175.15:80 (Score: 90)
+T+1452204950.53s | C2 Communication               | 192.168.122.52:49328 -> 23.0.202.138:80 (Score: 90)
+T+1452204950.53s | C2 Communication               | 192.168.122.52:49329 -> 23.0.202.138:80 (Score: 90)
+T+1452204950.53s | C2 Communication               | 192.168.122.52:49330 -> 23.0.202.138:80 (Score: 180)
+T+1452204952.67s | C2 Communication               | 192.168.122.52:49332 -> 104.97.224.191:80 (Score: 90)
+T+1452204958.73s | Ransomware Activity            | 192.168.122.52:49340 -> 103.2.116.93:80 (Score: 100)
+T+1452205004.39s | Suspicious Network Activity    | 192.168.122.132:52568 -> 8.8.4.4:53 (Score: 50)
+T+1452205005.18s | Ransomware Activity            | 192.168.122.132:49222 -> 95.128.181.144:80 (Score: 190)
+T+1452205008.33s | C2 Communication               | 192.168.122.132:49224 -> 95.128.181.144:80 (Score: 90)
+T+1452205008.33s | Malicious Payload Transfer     | 192.168.122.132:49225 -> 95.128.181.144:80 (Score: 20)
+T+1452205008.34s | C2 Communication               | 192.168.122.132:49226 -> 95.128.181.144:80 (Score: 140)
+T+1452205008.89s | C2 Communication               | 192.168.122.132:49228 -> 95.128.181.144:80 (Score: 90)
