@@ -11,7 +11,7 @@ The entire workflow is managed by a single orchestrator script: `main.py`.
 
 ---
 
-## 🏗️ Architecture & File Structure
+## Architecture & File Structure
 
 ### Core Execution
 - **`main.py`**: The master wrapper script. Run this file with a `.pcap` file to automatically execute all phases sequentially.
@@ -30,7 +30,7 @@ The entire workflow is managed by a single orchestrator script: `main.py`.
 
 ---
 
-## ⚙️ Prerequisites & Installation
+##  Prerequisites & Installation
 
 ### 1. System Requirements (Linux/Debian/Ubuntu)
 The Phase 1 orchestrator (`packet_factory.py`) relies heavily on native security binaries to process PCAP files. Run the following to install the core system dependencies:
@@ -77,7 +77,7 @@ export OTX_API_KEY="your_otx_alienvault_api_key"
 
 ---
 
-## 🚀 Execution Guide
+##  Execution Guide
 
 ### End-to-End Execution (Recommended)
 To run the entire pipeline from start to finish on a PCAP file, simply use `main.py`.
@@ -110,7 +110,7 @@ python3 correlation.py processed/capture/ phase2_output/capture_20260428_123000/
 
 ---
 
-## 📁 Output Artifacts
+##  Output Artifacts
 
 After a successful run, navigate to your timestamped output directory (e.g., `phase2_output/Hive_20260428_143000/`). You will find:
 
