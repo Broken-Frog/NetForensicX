@@ -1,0 +1,44 @@
+🧾 ATTACK STORY (AUTO-GENERATED)
+==================================================
+
+🚨 VERDICT: Ransomware infection with active C2 communication
+Confidence: HIGH
+Affected Hosts: 192.168.1.4, 192.168.1.5
+
+
+🔴 LATERAL MOVEMENT DETECTED:
+  192.168.1.4 → 192.168.1.5 via SMB (Port 445)
+
+🎯 LIKELY PATIENT ZERO: 192.168.1.4 (PCA)
+  Confidence: HIGH
+  Reason:
+  - Earliest confirmed infection time
+  - Initiated SMB-based lateral movement
+  - High malicious activity score (4060 pts)
+--------------------------------------------------
+[STAGE 2] Payload Execution
+Malicious payload executed on host.
+Hash: 9b6c9803...
+Indicators:
+- YARA Cluster [C2/Backdoor] (90 pts on 7515f96d)
+- YARA Cluster [C2/Backdoor/Suspicious/Generic/Fileless/Injection/Downloader/Dropper/Obfuscation/Evasion] (90 pts on 414e561a)
+- YARA Cluster [Suspicious/Generic/Downloader/Dropper/Obfuscation/Evasion] (60 pts on 367be27a)
+
+💀 INFECTED HOST: 192.168.1.5 (PCB)
+  ↳ Infected by: 192.168.1.4
+--------------------------------------------------
+[STAGE 2] Payload Execution
+Malicious payload executed on host.
+Hash: 9b6c9803...
+Indicators:
+- YARA Cluster [C2/Backdoor] (90 pts on 7515f96d)
+- YARA Cluster [C2/Backdoor/Suspicious/Generic/Fileless/Injection/Downloader/Dropper/Obfuscation/Evasion] (90 pts on 414e561a)
+- YARA Cluster [Suspicious/Generic/Downloader/Dropper/Obfuscation/Evasion] (60 pts on 367be27a)
+
+============================================================
+ 🕒 GLOBAL ATTACK TIMELINE
+============================================================
+1970-01-01T00:00:53.527Z | C2 Communication               | fe80::4dce:8485:1e0b:314a:49174 -> fe80::7144:1beb:fc16:a07a:2869 (Score: 90)
+1970-01-01T00:01:06.535Z | C2 Communication               | 192.168.1.5:49179 -> 192.168.1.4:2869 (Score: 90)
+1970-01-01T00:01:14.154Z | C2 Communication               | 192.168.1.4:49184 -> 192.168.1.5:2869 (Score: 90)
+1970-01-01T00:02:35.811Z | Ransomware Activity            | 192.168.1.4:49188 -> 192.168.1.5:445 (Score: 3880)

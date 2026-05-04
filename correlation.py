@@ -13,6 +13,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Set, Optional
 import ipaddress
+import datetime
 from config import VOLUMETRIC_THRESHOLD_DOS, VOLUMETRIC_THRESHOLD_PORT_SCAN
 
 def _load_json_lines(path: Path) -> List[Dict]:
@@ -127,17 +128,14 @@ def classify_host_roles(sessions: Dict[str, Dict], host_profiles: Dict[str, Dict
         }
 
     # --- Phase E: Determine Patient Zero(s) ---
-    # Among suspected patients, pick earliest first_seen; if tie within 1s → co-primary
-    candidates = [(ip, r) for ip, r in roles.items() if r["role"] == "SUSPECTED_PATIENT_ZERO" and r["infection_score"] > 0]
-    infectors  = [(ip, r) for ip, r in roles.items() if r["role"] == "INFECTOR"]
+    # Pick earliest first_seen among all infected internal hosts
+    all_candidates = [(ip, r) for ip, r in roles.items() if r["infection_score"] > 0 and r["role"] not in ("ATTACKER", "VICTIM", "C2_NODE")]
 
-    # Infectors with no prior lateral movement received are strong Patient Zero candidates
-    all_pz_candidates = candidates + infectors
-    if all_pz_candidates:
-        all_pz_candidates.sort(key=lambda x: (x[1]["first_seen"], -x[1]["infection_score"]))
-        earliest_ts = all_pz_candidates[0][1]["first_seen"]
+    if all_candidates:
+        all_candidates.sort(key=lambda x: (x[1]["first_seen"], -x[1]["infection_score"]))
+        earliest_ts = all_candidates[0][1]["first_seen"]
         pz_ips = [
-            ip for ip, r in all_pz_candidates
+            ip for ip, r in all_candidates
             if abs(r["first_seen"] - earliest_ts) <= 1.0  # co-primary window: 1 second
         ]
         if len(pz_ips) == 1:
@@ -232,6 +230,7 @@ def generate_attack_story(sessions: Dict[str, Dict], timeline_events: List[Dict]
         max_score = 0
         pz_story_lines = []
         global_stages = set()
+        global_seen_stage2_hashes = set()
 
         # Build role-ordered host list: PZ/CO-PRIMARY first, then INFECTED
         ROLE_ORDER = {"PATIENT_ZERO": 0, "CO_PRIMARY": 1, "INFECTOR": 2, "INFECTED": 3, "SUSPECTED_PATIENT_ZERO": 4}
@@ -268,8 +267,8 @@ def generate_attack_story(sessions: Dict[str, Dict], timeline_events: List[Dict]
 
             # Role-aware header
             role_emoji = {
-                "PATIENT_ZERO": "🎯 PATIENT ZERO",
-                "CO_PRIMARY": "🎯 CO-PRIMARY PATIENT ZERO",
+                "PATIENT_ZERO": "🎯 LIKELY PATIENT ZERO",
+                "CO_PRIMARY": "🎯 LIKELY CO-PRIMARY PATIENT ZERO",
                 "INFECTOR": "☣ INFECTOR",
                 "INFECTED": "💀 INFECTED HOST",
                 "SUSPECTED_PATIENT_ZERO": "🎯 SUSPECTED PATIENT ZERO"
@@ -277,8 +276,29 @@ def generate_attack_story(sessions: Dict[str, Dict], timeline_events: List[Dict]
 
             hostname_str = f" ({pz.get('hostname', 'Unknown')})"
             pz_story_lines.append(f"\n{role_emoji}: {pz_ip}{hostname_str}")
-            if role == "CO_PRIMARY":
-                pz_story_lines.append("  ⚠ Co-primary infection sources detected (simultaneous compromise)")
+            
+            if role in ("PATIENT_ZERO", "CO_PRIMARY", "SUSPECTED_PATIENT_ZERO"):
+                confidence = "HIGH" if len(role_info.get("lateral_movements", [])) > 0 else "MEDIUM"
+                if role == "SUSPECTED_PATIENT_ZERO": confidence = "LOW"
+                
+                pz_story_lines.append(f"  Confidence: {confidence}")
+                pz_story_lines.append(f"  Reason:")
+                
+                if role == "PATIENT_ZERO":
+                    pz_story_lines.append(f"  - Earliest confirmed infection time")
+                elif role == "CO_PRIMARY":
+                    pz_story_lines.append(f"  - Simultaneous compromise detected with another host")
+                elif role == "SUSPECTED_PATIENT_ZERO":
+                    pz_story_lines.append(f"  - Shows signs of compromise but lacks clear lateral movement initiation")
+                    
+                lat_moves = role_info.get("lateral_movements", [])
+                if lat_moves:
+                    protocols = list(set([p for _, _, p in lat_moves]))
+                    pz_story_lines.append(f"  - Initiated {', '.join(protocols)}-based lateral movement")
+                    
+                if pz["infection_score"] > 100:
+                    pz_story_lines.append(f"  - High malicious activity score ({pz['infection_score']} pts)")
+
             if role_info.get("infected_by"):
                 pz_story_lines.append(f"  ↳ Infected by: {', '.join(role_info['infected_by'])}")
             pz_story_lines.append("-" * 50)
@@ -377,8 +397,16 @@ def generate_attack_story(sessions: Dict[str, Dict], timeline_events: List[Dict]
                     for s in stg_sessions[:3]: pz_story_lines.append(f"- {s.get('intel_hits', ['Exploitation Attempt'])[0]}")
                 elif stg_num == 2:
                     files = list(set([f for s in stg_sessions for f in s.get("files", [])]))
-                    pz_story_lines.append(f"Malicious payload executed on host.")
-                    if files: pz_story_lines.append(f"Hash: {files[0][:8]}...")
+                    new_files = [f for f in files if f not in global_seen_stage2_hashes]
+                    
+                    if not new_files and files:
+                        pz_story_lines.append(f"Malicious payload executed on host (Previously seen hash: {files[0][:8]}...)")
+                    else:
+                        pz_story_lines.append(f"Malicious payload executed on host.")
+                        if new_files: 
+                            pz_story_lines.append(f"Hash: {new_files[0][:8]}...")
+                            global_seen_stage2_hashes.update(new_files)
+                            
                     pz_story_lines.append(f"Indicators:")
                     for s in stg_sessions[:3]: pz_story_lines.append(f"- {s.get('intel_hits', ['Malicious File Transfer'])[0]}")
                 elif stg_num == 3:
@@ -440,7 +468,12 @@ def generate_attack_story(sessions: Dict[str, Dict], timeline_events: List[Dict]
     story_lines.append(" 🕒 GLOBAL ATTACK TIMELINE")
     story_lines.append("============================================================")
     for evt in timeline_events:
-        story_lines.append(f"T+{evt['timestamp']:.2f}s | {evt['action']:<30} | {evt['source']} -> {evt['destination']} (Score: {evt['score']})")
+        dt = datetime.datetime.fromtimestamp(evt['timestamp'], tz=datetime.timezone.utc)
+        if dt.year == 1970:
+            iso_ts = f"T+{evt['timestamp']:.2f}s"
+        else:
+            iso_ts = dt.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
+        story_lines.append(f"{iso_ts} | {evt['action']:<30} | {evt['source']} -> {evt['destination']} (Score: {evt['score']})")
         
     out_story = "\n".join(story_lines)
     
@@ -770,11 +803,23 @@ def build_attack_chains(
                     "suricata_alerts": set(),
                     "files": set(),
                     "contacted_domains": set(),
-                    "contacted_ips": set()
+                    "contacted_ips": set(),
+                    "first_seen": sess.get("ts", float('inf'))
                 }
             
             profile = host_profiles[ip]
-            profile["infection_score"] += sess["score"]
+            
+            ts = sess.get("ts")
+            if ts and ts < profile.get("first_seen", float('inf')):
+                profile["first_seen"] = ts
+                
+            if "Volumetric" in " ".join(sess.get("intel_hits", [])):
+                if not profile.get("dos_counted"):
+                    profile["infection_score"] += 80
+                    profile["dos_counted"] = True
+                profile["dos_connections"] = profile.get("dos_connections", 0) + 1
+            else:
+                profile["infection_score"] += sess["score"]
             profile["intel_hits"].update(sess.get("intel_hits", []))
             
             for alert in sess.get("suricata_alerts", []):
@@ -925,6 +970,14 @@ def build_attack_chains(
     print(f"\n============================================================")
     print(f" [Phase 3] CORRELATION COMPLETE")
     print(f"============================================================")
+    
+    stats_file = phase2_dir / "run_stats.json"
+    pcap_hash = "Unknown (Run from Phase 3 manually)"
+    if stats_file.exists():
+        stats = _load_json(stats_file)
+        pcap_hash = stats.get("forensic_integrity", {}).get("pcap_sha256", pcap_hash)
+        
+    print(f" Input PCAP Hash: {pcap_hash}")
     print(f" Analyzed {len(sessions)} unique Zeek sessions.")
     print(f" Profiled {len(host_profiles)} internal hosts.")
     print(f" Extracted {len(final_high_sev)} HIGH severity incidents (Aggregated from {len(high_sev)} raw).")
@@ -936,7 +989,12 @@ def build_attack_chains(
     if timeline_events:
         print(" [ATTACK TIMELINE]")
         for evt in timeline_events[:10]:
-            print(f" ⏳ T+{evt['timestamp']:.2f}s | {evt['action']:<30} | {evt['source']} -> {evt['destination']} (Score: {evt['score']})")
+            dt = datetime.datetime.fromtimestamp(evt['timestamp'], tz=datetime.timezone.utc)
+            if dt.year == 1970:
+                iso_ts = f"T+{evt['timestamp']:.2f}s"
+            else:
+                iso_ts = dt.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
+            print(f" ⏳ {iso_ts} | {evt['action']:<30} | {evt['source']} -> {evt['destination']} (Score: {evt['score']})")
         if len(timeline_events) > 10:
             print(f"   ... and {len(timeline_events) - 10} more events in attack_timeline.json")
         print("\n" + "="*60)

@@ -43,9 +43,8 @@ def _is_private_ip(addr: str) -> bool:
 
 
 def _is_noise_ip(addr: str) -> bool:
-    """True if IP is unroutable noise like 0.0.0.0 or 255.255.255.255"""
-    addr = addr.strip()
-    return addr in {"0.0.0.0", "255.255.255.255"}
+    # Deprecated: replaced by ipaddress classification
+    return False
 
 
 def _dedup_key(ioc: Dict[str, Any]) -> str:
@@ -96,8 +95,8 @@ def clean_and_deduplicate(raw_iocs: List[Dict]) -> Tuple[List[Dict], Dict[str, i
                 }
     """
     input_count     = len(raw_iocs)
-    dropped_empty   = 0
-    dropped_private = 0
+    dropped_empty       = 0
+    dropped_special_ips = 0
     dropped_dedup   = 0
 
     seen_keys: Set[str] = set()
@@ -109,20 +108,43 @@ def clean_and_deduplicate(raw_iocs: List[Dict]) -> Tuple[List[Dict], Dict[str, i
             dropped_empty += 1
             continue
 
-        # Pass 2 — drop noise IPs and contextually filter private IPs
-        ip = ioc.get("ip", "") or ""
-        if ip:
-            if _is_noise_ip(ip):
-                dropped_private += 1
-                continue
+        # Pass 2 — categorize and drop special/unroutable IPs
+        ip_str = ioc.get("ip", "") or ""
+        if ip_str:
+            ip_str = ip_str.strip()
+            try:
+                ip_obj = ipaddress.ip_address(ip_str)
                 
-            is_private = _is_private_ip(ip)
-            ioc["is_private"] = is_private
-            
-            if is_private and ioc.get("source_type") == "threat_intel":
-                dropped_private += 1
-                log.debug("Threat Intel private IP dropped: %s", ip)
-                continue
+                if ip_obj.is_unspecified:
+                    tag = "UNSPECIFIED"        # 0.0.0.0
+                elif ip_obj.is_multicast:
+                    tag = "MULTICAST"
+                elif ip_obj.is_reserved:
+                    tag = "RESERVED"
+                elif ip_obj.is_loopback:
+                    tag = "LOOPBACK"           # 127.0.0.1
+                elif ip_obj.is_private:
+                    tag = "INTERNAL"           # 192.168.x.x
+                elif getattr(ip_obj, 'is_global', not ip_obj.is_private):
+                    tag = "EXTERNAL"
+                else:
+                    tag = "UNKNOWN"
+                    
+                ioc["network_zone"] = tag
+                
+                if tag == "INTERNAL":
+                    ioc["is_private"] = True
+                    
+                if tag in ("UNSPECIFIED", "MULTICAST", "RESERVED", "LOOPBACK"):
+                    dropped_special_ips += 1
+                    continue
+                    
+            except ValueError:
+                pass
+                
+            if ip_str.lower().startswith("fe80:"):
+                ioc["network_zone"] = "LOCAL_LINK"
+                ioc["reduce_weight"] = True
 
         # Pass 3 — deduplicate
         key = _dedup_key(ioc)
@@ -137,16 +159,16 @@ def clean_and_deduplicate(raw_iocs: List[Dict]) -> Tuple[List[Dict], Dict[str, i
 
     stats = {
         "input_count":     input_count,
-        "dropped_empty":   dropped_empty,
-        "dropped_private": dropped_private,
+        "dropped_empty":       dropped_empty,
+        "dropped_special_ips": dropped_special_ips,
         "dropped_dedup":   dropped_dedup,
         "output_count":    len(cleaned),
     }
 
     log.info(
         "Cleaning complete: %d in → %d out  "
-        "(empty=%d  private=%d  dedup=%d)",
+        "(empty=%d  special_ips=%d  dedup=%d)",
         input_count, len(cleaned),
-        dropped_empty, dropped_private, dropped_dedup,
+        dropped_empty, dropped_special_ips, dropped_dedup,
     )
     return cleaned, stats

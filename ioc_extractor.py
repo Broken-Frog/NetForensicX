@@ -149,6 +149,14 @@ def main() -> None:
     t0 = time.perf_counter()
     log.info("[Step 5/5] Writing output …")
 
+    import os
+    pipeline_stats["forensic_integrity"] = {
+        "pcap_sha256": os.environ.get("FORENSIC_PCAP_HASH", "Unknown"),
+        "operator": os.environ.get("FORENSIC_OPERATOR", "Unknown"),
+        "hostname": os.environ.get("FORENSIC_HOSTNAME", "Unknown"),
+        "timestamp_utc": os.environ.get("FORENSIC_START_TIME", "Unknown")
+    }
+
     pipeline_stats["wall_time_seconds"] = round(time.perf_counter() - wall_start, 2)
     save_results(
         iocs=clean_iocs,
