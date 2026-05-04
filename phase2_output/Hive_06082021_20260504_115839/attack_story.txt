@@ -1,0 +1,47 @@
+🧾 ATTACK STORY (AUTO-GENERATED)
+==================================================
+
+🚨 VERDICT: Ransomware infection with active C2 communication
+Confidence: HIGH
+Affected Hosts: 192.168.1.5, 192.168.1.4
+
+
+🔴 LATERAL MOVEMENT DETECTED:
+  192.168.1.4 → 192.168.1.5 via SMB (Port 445)
+
+🎯 LIKELY CO-PRIMARY PATIENT ZERO: 192.168.1.5 (PCB)
+  Confidence: MEDIUM
+  Reason:
+  - Simultaneous compromise detected with another host
+  - High malicious activity score (4060 pts)
+  ↳ Infected by: 192.168.1.4
+--------------------------------------------------
+[STAGE 2] Payload Execution
+Malicious payload executed on host.
+Hash: 38e3773c...
+Indicators:
+- YARA Cluster [C2/Backdoor] (90 pts on 7515f96d)
+- YARA Cluster [Downloader/Dropper/Suspicious/Generic/C2/Backdoor/Obfuscation/Evasion/Fileless/Injection] (90 pts on 414e561a)
+- YARA Cluster [C2/Backdoor/Obfuscation/Evasion/Downloader/Dropper/Fileless/Injection] (90 pts on 8a49ad57)
+
+🎯 LIKELY CO-PRIMARY PATIENT ZERO: 192.168.1.4 (PCA)
+  Confidence: HIGH
+  Reason:
+  - Simultaneous compromise detected with another host
+  - Initiated SMB-based lateral movement
+  - High malicious activity score (4060 pts)
+--------------------------------------------------
+[STAGE 2] Payload Execution
+Malicious payload executed on host (Previously seen hash: 38e3773c...)
+Indicators:
+- YARA Cluster [C2/Backdoor] (90 pts on 7515f96d)
+- YARA Cluster [Downloader/Dropper/Suspicious/Generic/C2/Backdoor/Obfuscation/Evasion/Fileless/Injection] (90 pts on 414e561a)
+- YARA Cluster [C2/Backdoor/Obfuscation/Evasion/Downloader/Dropper/Fileless/Injection] (90 pts on 8a49ad57)
+
+============================================================
+ 🕒 GLOBAL ATTACK TIMELINE
+============================================================
+T+53.53s | C2 Communication               | fe80::4dce:8485:1e0b:314a:49174 -> fe80::7144:1beb:fc16:a07a:2869 (Score: 90)
+T+66.54s | C2 Communication               | 192.168.1.5:49179 -> 192.168.1.4:2869 (Score: 90)
+T+74.15s | C2 Communication               | 192.168.1.4:49184 -> 192.168.1.5:2869 (Score: 90)
+T+155.81s | Ransomware Activity            | 192.168.1.4:49188 -> 192.168.1.5:445 (Score: 3880)

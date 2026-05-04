@@ -103,6 +103,9 @@ sudo systemctl start redis-server
 
 *(Note on Zeek: It is usually installed in `/opt/zeek/bin/zeek`. Ensure this is accessible or added to your system `$PATH`).*
 
+> **Troubleshooting Zeek Intel Framework Issues:**
+> On fresh installations, you may encounter issues loading Zeek's `intel` framework. If Zeek fails to run because of this, you can safely skip the Intel module by commenting out or removing the line `@load frameworks/intel\n` inside `packet_factory.py` where the Zeek script is generated.
+
 ### 2. Python Environment Setup
 The Phase 2 enrichment engine (`ioc_extractor.py`) requires several Python libraries to handle async API requests, Redis caching, and YARA rule matching. It is highly recommended to use a Python virtual environment to manage these dependencies.
 
