@@ -1,4 +1,4 @@
-# NetForensicX: Threat Intelligence & IOC Extraction Pipeline
+# NetForensicX: Network Forensic Analysis & Attack Reconstruction Framework
 
 ## Project Overview
 NetForensicX is an automated Post-Analysis Ingestion Framework designed to process network packet captures (PCAPs), extract Indicators of Compromise (IOCs), and enrich them using multiple Threat Intelligence APIs. It provides a comprehensive forensic platform by implementing host-centric profiling, attack timeline reconstruction, and dynamic severity-based scoring to reduce alert noise.
