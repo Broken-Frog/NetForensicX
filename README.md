@@ -20,16 +20,24 @@ The entire workflow is managed by a single orchestrator script: `main.py`.
 ##  Architecture
 ```mermaid
 graph TD;
-    A[Raw PCAP] -->|Phase 1| B[packet_factory.py]
-    B -->|Zeek + Suricata| C[Data Lake: Logs & Extracted Payloads]
+
+    M[main.py Orchestrator] --> A[Raw PCAP]
+
+    A -->|Phase 1| B[packet_factory.py]
+    B -->|Zeek + Suricata| C[Data Lake:
+    Zeek Logs + Suricata Alerts + Extracted Payloads]
+
     C -->|Phase 2| D[ioc_extractor.py]
     D -->|YARA Scanning| E[Payload Threat Scores]
-    D -->|Async API Enrichment| F[VT, AbuseIPDB, OTX]
+    D -->|Async Enrichment| F[VT, AbuseIPDB, OTX]
+
     E & F --> G[Unified Enriched IOCs]
-    G -->|Phase 3| H[correlation.py]
-    H --> I(incidents_correlated.json)
-    H --> J(host_profiles.json)
-    H --> K(attack_timeline.json)
+
+    G -->|Scoring + Clustering| H[correlation.py]
+
+    H -->|Host Profiling| J[host_profiles.json]
+    H -->|Incident Clustering| I[incidents_correlated.json]
+    H -->|Timeline Reconstruction| K[attack_timeline.json]
 ```
 
 ##  Features
