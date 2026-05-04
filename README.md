@@ -34,10 +34,11 @@ graph TD;
 
 ##  Features
 - **Automated PCAP Extraction:** Uses Zeek and Suricata to carve logs and file payloads from raw traffic.
-- **Dynamic IOC Deduplication:** Filters out internal traffic and intelligently deduplicates massive IOC sets.
+- **Forensic Integrity & Chain of Custody:** Cryptographically seals analysis output with a `manifest.json`, tracking operator metadata and input PCAP SHA-256 hashes to adhere to legal defensibility standards (NIST SP 800-86).
+- **Dynamic IOC Deduplication & Tagging:** Preserves internal network activity by accurately tagging non-routable/special IPs (`ipaddress` classification) without losing lateral movement context.
 - **YARA Scoring Engine:** Clusters raw YARA hits into actionable threat categories (e.g., "C2/Backdoor", "Ransomware") with weighted severity scoring.
-- **Host-Centric Profiling:** Tracks internal IP activity to map out "Patient Zero" and overall infection severity per host.
-- **Attack Timeline Generator:** Reconstructs the entire narrative of the attack from Initial Access down to Impact chronologically.
+- **Host-Centric Profiling:** Tracks internal IP activity to accurately map out "Patient Zero" based on chronological tracking of the earliest malicious event.
+- **Attack Timeline & Narrative:** Reconstructs the entire narrative of the attack from Initial Access down to Impact using legally defensible UTC ISO 8601 timestamps, deduplicated for readability.
 - **High-Performance API Enrichment:** Asynchronous, rate-limited queries to external Threat Intel platforms backed by a Redis cache.
 
 ##  Use Cases
@@ -168,11 +169,15 @@ python3 correlation.py processed/capture/ phase2_output/capture_20260428_123000/
 
 After a successful run, navigate to your timestamped output directory (e.g., `phase2_output/Hive_20260428_143000/`). You will find:
 
+- **`manifest.json`**: Cryptographic seal of the entire run, containing the SHA-256 hash of the input PCAP, the exact operator and hostname, and file hashes of all generated output reports and carved payloads.
+
+- **`attack_story.txt`**: A human-readable, auto-generated narrative of the incident. Includes DoS summaries, a host-by-host breakdown of the attack stages (deduplicated by payload hash), and a chronological global attack timeline formatted in UTC ISO 8601.
+
 - **`attack_timeline.json`**: A chronological sequence of the attack. 
   - *Calculations & Logic*: The correlation engine filters all network sessions with an `infection_score > 0`, sorts them by Zeek's `ts` (timestamp), and determines the primary narrative `action` (e.g., "C2 Communication", "Malicious Payload Transfer", "Lateral Movement") based on the highest severity intelligence hits.
 
 - **`host_profiles.json`**: Host-centric infection metrics to identify "Patient Zero" or heavily compromised internal machines.
-  - *Calculations & Logic*: Maps internal IP addresses (detected dynamically using `ipaddress` to filter RFC1918/Local ranges) to their associated network activity. It aggregates every malicious session's infection score involving that internal IP and collects all unique YARA hits, extracted files, connected external IPs, and triggered Suricata alerts.
+  - *Calculations & Logic*: Maps internal IP addresses (detected dynamically using `ipaddress` to filter RFC1918/Local ranges) to their associated network activity. It aggregates every malicious session's infection score involving that internal IP (capping DoS scores to prevent inflation) and collects all unique YARA hits, extracted files, connected external IPs, and triggered Suricata alerts.
 
 - **`incidents_correlated.json`**: The core dataset for high and medium severity attack chains.
   - *Calculations & Logic*: Calculates a base `severity` score for every Zeek network session. Scoring weights:
@@ -186,6 +191,6 @@ After a successful run, navigate to your timestamped output directory (e.g., `ph
 
 - **`scanned_iocs_by_api.json`**: An audit log showing exactly which API endpoints were triggered for which IOC, providing chain-of-custody tracking for external queries.
 
-- **`run_stats.json`**: Statistical counters representing the health of the pipeline (cache hits, API errors, deduplication rates, etc.).
+- **`run_stats.json`**: Statistical counters representing the health of the pipeline (cache hits, API errors, deduplication rates, `dropped_special_ips` count, forensic runtime integrity parameters).
 
 - **`pipeline.log`**: A debug trace of the pipeline execution.
