@@ -8,3 +8,4 @@ frontend/
 api/
 *.yml
 processed/
+phase2_output/
