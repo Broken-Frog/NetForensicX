@@ -464,16 +464,17 @@ def generate_attack_story(sessions: Dict[str, Dict], timeline_events: List[Dict]
         story_lines.append(f"Affected Hosts: {', '.join(affected_hosts) if affected_hosts else 'None'}\n")
         story_lines.extend(pz_story_lines)
 
-    story_lines.append("\n============================================================")
-    story_lines.append(" 🕒 GLOBAL ATTACK TIMELINE")
-    story_lines.append("============================================================")
-    for evt in timeline_events:
-        dt = datetime.datetime.fromtimestamp(evt['timestamp'], tz=datetime.timezone.utc)
-        if dt.year == 1970:
-            iso_ts = f"T+{evt['timestamp']:.2f}s"
-        else:
-            iso_ts = dt.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
-        story_lines.append(f"{iso_ts} | {evt['action']:<30} | {evt['source']} -> {evt['destination']} (Score: {evt['score']})")
+    if not global_flags["volumetric"]:
+        story_lines.append("\n============================================================")
+        story_lines.append(" 🕒 GLOBAL ATTACK TIMELINE")
+        story_lines.append("============================================================")
+        for evt in timeline_events:
+            dt = datetime.datetime.fromtimestamp(evt['timestamp'], tz=datetime.timezone.utc)
+            if dt.year == 1970:
+                iso_ts = f"T+{evt['timestamp']:.2f}s"
+            else:
+                iso_ts = dt.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
+            story_lines.append(f"{iso_ts} | {evt['action']:<30} | {evt['source']} -> {evt['destination']} (Score: {evt['score']})")
         
     out_story = "\n".join(story_lines)
     
@@ -891,23 +892,6 @@ def build_attack_chains(
             
     final_high_sev = non_dos_high_sev + list(dos_aggregated.values())
     
-    # Calculate pie chart distributions for the frontend
-    protocol_distribution = {}
-    service_distribution = {}
-    src_port_distribution = {}
-    
-    for s in final_high_sev + med_sev:
-        proto = s.get("proto") or "unknown"
-        service = s.get("service") or "unknown"
-        port = s.get("orig_p")
-        
-        protocol_distribution[proto] = protocol_distribution.get(proto, 0) + 1
-        service_distribution[service] = service_distribution.get(service, 0) + 1
-        
-        if port:
-            port_str = f"Port {port}"
-            src_port_distribution[port_str] = src_port_distribution.get(port_str, 0) + 1
-    
     out_file = phase2_dir / "incidents_correlated.json"
     
     with open(out_file, "w", encoding="utf-8") as f:
@@ -915,10 +899,7 @@ def build_attack_chains(
             "high_severity": high_sev,
             "medium_severity": med_sev,
             "total_high": len(high_sev),
-            "total_medium": len(med_sev),
-            "protocol_distribution": protocol_distribution,
-            "service_distribution": service_distribution,
-            "src_port_distribution": src_port_distribution
+            "total_medium": len(med_sev)
         }, f, indent=2)
         
     # 7. Timeline Generation

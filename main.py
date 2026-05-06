@@ -131,7 +131,7 @@ def main():
             json.dump(manifest, f, indent=2)
             
         print(f"✅ Cryptographic manifest generated: {manifest_path}")
-
+        
     print("\n✅ Complete Pipeline Finished Successfully!")
 
 if __name__ == "__main__":

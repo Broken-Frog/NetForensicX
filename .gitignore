@@ -9,3 +9,5 @@ api/
 *.yml
 processed/
 phase2_output/
+*.pdf
+docs/Research/*

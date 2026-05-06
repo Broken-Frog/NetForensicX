@@ -1,6 +1,4 @@
 # NetForensicX: Network Forensic Analysis & Attack Reconstruction Framework
-![License](https://img.shields.io/badge/license-MIT-blue.svg) [![DOI](https://zenodo.org/badge/1219872875.svg)](https://doi.org/10.5281/zenodo.20047727)
-
 
 ## Project Overview
 NetForensicX is an automated Post-Analysis Ingestion Framework designed to process network packet captures (PCAPs), extract Indicators of Compromise (IOCs), and enrich them using multiple Threat Intelligence APIs. It provides a comprehensive forensic platform by implementing host-centric profiling, attack timeline reconstruction, and dynamic severity-based scoring to reduce alert noise.
@@ -158,7 +156,7 @@ python3 main.py path/to/capture.pcap
 1. **Phase 1** runs, generating parsed logs and extracted payloads inside `processed/capture/`.
 2. **Phase 2** automatically targets that specific `processed/capture/` folder.
 3. A unique timestamped output folder is generated (e.g., `phase2_output/capture_20260428_123000/`) to prevent overwriting previous runs and to preserve your chain of custody.
-4. **Phase 3** consumes the enriched data and outputs host profiles and a chronological attack timeline.
+4. **Phase 3** consumes the enriched data and outputs high-severity incident graphs, host profiles, and a chronological attack timeline.
 
 ### Running Phases Independently
 If you only want to extract the Zeek/Suricata data lake without querying Threat Intel APIs, you can run Phase 1 independently:
@@ -198,7 +196,7 @@ After a successful run, navigate to your timestamped output directory (e.g., `ph
     - **Volumetric Anomalies**: +80 pts for exceeding DOS/Port Scan thresholds.
     - **VT Malicious IPs/Domains**: +80 pts for >= 5 engine detections.
     - **Suricata Alerts**: +50 pts.
-    Sessions scoring >= 80 are marked `HIGH` severity, >= 40 are `MEDIUM`.
+    Sessions scoring >= 80 are marked `HIGH` severity, >= 40 are `MEDIUM`. Also contains distributions for protocols, services, and ports.
 
 - **`unified_iocs.json`**: The canonical dataset containing every extracted indicator (IP, domain, hash), associated ports, YARA clusters, Suricata alerts, and the full Threat Intel enrichment payload (e.g., VirusTotal scores, AbuseIPDB confidence ratings).
 
