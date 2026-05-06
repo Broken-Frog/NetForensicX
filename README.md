@@ -1,5 +1,6 @@
 # NetForensicX: Network Forensic Analysis & Attack Reconstruction Framework
-[![DOI](https://zenodo.org/badge/1219872875.svg)](https://doi.org/10.5281/zenodo.20047727) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) [![DOI](https://zenodo.org/badge/1219872875.svg)](https://doi.org/10.5281/zenodo.20047727)
+
 
 ## Project Overview
 NetForensicX is an automated Post-Analysis Ingestion Framework designed to process network packet captures (PCAPs), extract Indicators of Compromise (IOCs), and enrich them using multiple Threat Intelligence APIs. It provides a comprehensive forensic platform by implementing host-centric profiling, attack timeline reconstruction, and dynamic severity-based scoring to reduce alert noise.
