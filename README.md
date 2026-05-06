@@ -205,4 +205,3 @@ After a successful run, navigate to your timestamped output directory (e.g., `ph
 - **`run_stats.json`**: Statistical counters representing the health of the pipeline (cache hits, API errors, deduplication rates, `dropped_special_ips` count, forensic runtime integrity parameters).
 
 - **`pipeline.log`**: A debug trace of the pipeline execution.
-[![DOI](https://zenodo.org/badge/DOI/...svg)](...)
